@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Text Display</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            text-align: center;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="text-container"></div>
+
+    <script>
+        // Array of different text messages
+        const texts = [
+            "Hello World!",
+            "Welcome to my website.",
+            "This is a black screen.",
+            "The text changes every 0.5 seconds.",
+            "How do you like it?",
+            "Enjoy the effect!",
+            "Random text, random text, random text.",
+            "Time for a new message!",
+            "This is just the beginning."
+        ];
+
+        // Function to display random text
+        function showRandomText() {
+            const randomText = texts[Math.floor(Math.random() * texts.length)];
+            document.getElementById('text-container').innerText = randomText;
+        }
+
+        // Change text every 0.5 seconds (500ms)
+        setInterval(showRandomText, 500);
+
+        // Initial call to display text right away
+        showRandomText();
+    </script>
+</body>
+</html>
