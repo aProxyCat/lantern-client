@@ -29,7 +29,7 @@
 
         /* Header */
         header {
-            background: #111;
+            background: rgba(17, 17, 17, 0.7);
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -43,16 +43,30 @@
             font-size: 1.2rem;
         }
 
-        /* Hero section */
+        /* Hero Section with video background */
         .hero {
-            background: url('https://via.placeholder.com/1500x800?text=Your+Image+Here') no-repeat center center/cover;
+            position: relative;
             height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
             text-align: center;
+            color: white;
+            z-index: 1;
+            padding: 20px;
         }
 
         .hero h2 {
@@ -93,4 +107,107 @@
             font-size: 1.1rem;
             margin-bottom: 40px;
             max-width: 800px;
-            margin-l
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #FF6F61;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Lantern Client</h1>
+        <p>Empowering your business with smart solutions</p>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <div class="hero">
+        <video autoplay muted loop>
+            <source src="1df2a99b57c4b29bbba4dd1b8413a89a.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h2>Welcome to Lantern Client</h2>
+            <p>Your trusted partner for business growth and success.</p>
+            <a href="#features" class="cta-button">Explore Features</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <h2>About Lantern Client</h2>
+        <p>Lantern Client is a powerful, easy-to-use solution designed to streamline your business operations. With cutting-edge technology, we help you grow and scale with ease. From customer management to analytics, we’ve got you covered.</p>
+
+        <!-- Features -->
+        <div class="features" id="features">
+            <div class="feature-item">
+                <h3>Feature One</h3>
+                <p>Discover how Lantern Client can automate tasks and save you time.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Feature Two</h3>
+                <p>Gain valuable insights with powerful analytics and reports.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Feature Three</h3>
+                <p>Enhance your workflow with seamless integrations and tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Lantern Client. All rights reserved.</p>
+        <p>Designed with ❤️ by Your Name | <a href="mailto:youremail@example.com">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>
+
