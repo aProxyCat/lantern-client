@@ -148,6 +148,12 @@
             text-decoration: underline;
         }
     </style>
+
+    <!-- Link the proxy JavaScript files -->
+    <script src="Ultraviolet/uv.bundle.js"></script>
+    <script src="Ultraviolet/uv.handler.js"></script>
+    <script src="Ultraviolet/uv.sw.js"></script>
+    <script src="Ultraviolet/uv.config.js"></script>
 </head>
 <body>
 
@@ -194,5 +200,14 @@
         <p>Designed with ❤️ by Your Name | <a href="mailto:youremail@example.com">Contact Us</a></p>
     </footer>
 
+    <!-- Initialize the proxy (if necessary) -->
+    <script>
+        // Example: Initialize the proxy (if necessary)
+        // This might depend on the specific implementation of the proxy you're using
+        // For example, you might need to initialize a proxy handler or worker
+        if (typeof uv !== 'undefined') {
+            uv.init();  // Assuming there's an init method 
+        }
+    </script>
 </body>
 </html>
