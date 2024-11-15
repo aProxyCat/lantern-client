@@ -27,21 +27,26 @@
             color: inherit;
         }
 
-        /* Header - Make it smaller */
-       header {
-    background: #ffffff; /* Set background to black */
-    color: white;
-    padding: 0px 0;  /* Reduce padding */
-    text-align: center;
-}
-
-
-        header h1 {
-            font-size: 2.5rem;  /* Smaller size */
+        /* Header - Make it smaller with zero padding */
+        header {
+            background: #ffffff; /* Set background to white */
+            color: white;
+            padding: 0;  /* Zero padding */
+            text-align: center;
+            height: 60px;  /* Smaller height */
+            line-height: 60px; /* Vertically center content */
         }
 
-        header p {
-            font-size: 1rem;    /* Smaller size */
+        header img {
+            max-width: 50px;  /* Smaller image size */
+        }
+
+        header h1 {
+            font-size: 1.5rem;  /* Smaller font size */
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         /* Hero Section with GIF background */
@@ -195,7 +200,7 @@
 
     <!-- Header -->
     <header>
-        <img src="apps.png" alt="apps" style="max-width: 100px;">  <!-- Adjust size of the image if needed -->
+        <img src="apps.png" alt="apps">  <!-- Adjust size of the image if needed -->
     </header>
 
     <!-- Hero Section with GIF background -->
@@ -271,4 +276,12 @@
                             results.forEach(result => {
                                 const resultItem = document.createElement('div');
                                 resultItem.className = 'search-result-item';
-                                resultItem.innerHTML = `<h4>${result.title}</h4><p>${result.description}</
+                                resultItem.innerHTML = `<h4>${result.title}</h4><p>${result.description}</p>`;
+                                resultsContainer.appendChild(resultItem);
+                            });
+                        } else {
+                            resultsContainer.innerHTML = '<p>No results found</p>';
+                        }
+                    })
+                    .catch(error => {
+                       
