@@ -46,7 +46,9 @@
         }
 
         .hero-content {
-            position: relative;
+            position: absolute;
+            top: 80px; /* Adjust so it is below the icon */
+            width: 100%;
             text-align: center;
             color: white;
             z-index: 1;
@@ -191,6 +193,7 @@
 
     <!-- Hero Section with GIF background -->
     <div class="hero">
+        <!-- Move Lantern Client text to above search bar -->
         <div class="hero-content">
             <h2>Lantern Client</h2>
         </div>
@@ -266,4 +269,10 @@
                                 resultsContainer.appendChild(resultItem);
                             });
                         } else {
-                            resultsContainer
+                            resultsContainer.innerHTML = '<p>No results found</p>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Search error:', error);
+                    });
+           
