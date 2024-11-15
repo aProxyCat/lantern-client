@@ -27,27 +27,11 @@
             color: inherit;
         }
 
-        /* Header - Transparent background and centered content */
-        header {
-            background: transparent;  /* Make the header background invisible */
-            color: black;  /* Change text color to black to make it visible */
-            padding: 0;  /* Zero padding */
-            text-align: center;
-            height: 60px;  /* Smaller height */
-            line-height: 60px; /* Vertically center content */
-            position: relative; /* Keep positioning if needed for other elements */
-        }
-
-        header img {
-            max-width: 50px;  /* Smaller image size */
-        }
-
-        header h1 {
-            font-size: 1.5rem;  /* Smaller font size */
-            margin: 0;
-            padding: 0;
-            display: inline-block;
-            vertical-align: middle;
+        /* Icon Image at the Top */
+        .icon-image {
+            display: block;
+            width: 60px;  /* Adjust image size */
+            margin: 20px auto;  /* Center the image */
         }
 
         /* Hero Section with GIF background */
@@ -199,10 +183,8 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <img src="apps.png" alt="apps">  <!-- Adjust size of the image if needed -->
-    </header>
+    <!-- Icon Image -->
+    <img src="apps.png" alt="apps" class="icon-image">  <!-- Adjust size of the image if needed -->
 
     <!-- Hero Section with GIF background -->
     <div class="hero">
@@ -265,7 +247,7 @@
             }
 
             // Send the search query to the proxy (replace with actual proxy handling logic)
-            // Assuming the proxy has a function like `uv.search(query)` or similar
+            // Assuming the proxy has a function like uv.search(query) or similar
             if (typeof uv !== 'undefined') {
                 uv.search(query)
                     .then(results => {
@@ -273,4 +255,22 @@
                         const resultsContainer = document.getElementById('searchResults');
                         resultsContainer.innerHTML = ''; // Clear previous results
 
-                       
+                        if (results.length > 0) {
+                            results.forEach(result => {
+                                const resultItem = document.createElement('div');
+                                resultItem.className = 'search-result-item';
+                                resultItem.innerHTML = `<h4>${result.title}</h4><p>${result.description}</p>`;
+                                resultsContainer.appendChild(resultItem);
+                            });
+                        } else {
+                            resultsContainer.innerHTML = '<p>No results found</p>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Search error:', error);
+                    });
+            }
+        }
+    </script>
+</body>
+</html>
