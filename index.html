@@ -82,10 +82,14 @@
             background-color: #ff3f2a;
         }
 
-        /* Search Bar */
+        /* Search Bar - Centered in Background */
         .search-bar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
-            margin: 20px 0;
+            margin-top: 0;
         }
 
         .search-bar input {
@@ -189,11 +193,11 @@
             <p>Your trusted partner for business growth and success.</p>
             <a href="#features" class="cta-button">Explore Features</a>
         </div>
-    </div>
 
-    <!-- Search Bar Section -->
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search..." oninput="searchData()">
+        <!-- Search Bar Section -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search..." oninput="searchData()">
+        </div>
     </div>
 
     <!-- Search Results -->
