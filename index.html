@@ -27,14 +27,15 @@
             color: inherit;
         }
 
-        /* Header - Make it smaller with zero padding and transparent background */
+        /* Header - Transparent background and centered content */
         header {
-            background: transparent;  /* Set background to transparent */
-            color: white;
+            background: transparent;  /* Make the header background invisible */
+            color: black;  /* Change text color to black to make it visible */
             padding: 0;  /* Zero padding */
             text-align: center;
             height: 60px;  /* Smaller height */
             line-height: 60px; /* Vertically center content */
+            position: relative; /* Keep positioning if needed for other elements */
         }
 
         header img {
@@ -272,18 +273,4 @@
                         const resultsContainer = document.getElementById('searchResults');
                         resultsContainer.innerHTML = ''; // Clear previous results
 
-                        if (results.length > 0) {
-                            results.forEach(result => {
-                                const resultItem = document.createElement('div');
-                                resultItem.className = 'search-result-item';
-                                resultItem.innerHTML = `<h4>${result.title}</h4><p>${result.description}</p>`;
-                                resultsContainer.appendChild(resultItem);
-                            });
-                        } else {
-                            resultsContainer.innerHTML = '<p>No results found</p>';
-                        }
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-            }
+                       
