@@ -82,6 +82,25 @@
             background-color: #ff3f2a;
         }
 
+        /* Search Bar */
+        .search-bar {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 1rem;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            text-align: center;
+        }
+
         /* Main content */
         .main-content {
             padding: 40px 20px;
@@ -172,6 +191,16 @@
         </div>
     </div>
 
+    <!-- Search Bar Section -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search..." oninput="searchData()">
+    </div>
+
+    <!-- Search Results -->
+    <div class="search-results" id="searchResults">
+        <!-- Results will be displayed here -->
+    </div>
+
     <!-- Main Content -->
     <section class="main-content">
         <h2>About Lantern Client</h2>
@@ -203,10 +232,42 @@
     <!-- Initialize the proxy (if necessary) -->
     <script>
         // Example: Initialize the proxy (if necessary)
-        // This might depend on the specific implementation of the proxy you're using
-        // For example, you might need to initialize a proxy handler or worker
         if (typeof uv !== 'undefined') {
             uv.init();  // Assuming there's an init method 
+        }
+
+        // Function to handle the search
+        function searchData() {
+            const query = document.getElementById('searchInput').value;
+            if (query.length < 3) {
+                document.getElementById('searchResults').innerHTML = ''; // Clear results if query is too short
+                return;
+            }
+
+            // Send the search query to the proxy (replace with actual proxy handling logic)
+            // Assuming the proxy has a function like `uv.search(query)` or similar
+            if (typeof uv !== 'undefined') {
+                uv.search(query)
+                    .then(results => {
+                        // Display results (adjust this based on how results are returned)
+                        const resultsContainer = document.getElementById('searchResults');
+                        resultsContainer.innerHTML = ''; // Clear previous results
+
+                        if (results.length > 0) {
+                            results.forEach(result => {
+                                const resultItem = document.createElement('div');
+                                resultItem.className = 'search-result-item';
+                                resultItem.innerHTML = `<h4>${result.title}</h4><p>${result.description}</p>`;
+                                resultsContainer.appendChild(resultItem);
+                            });
+                        } else {
+                            resultsContainer.innerHTML = '<p>No results found.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Search failed:', error);
+                    });
+            }
         }
     </script>
 </body>
