@@ -37,9 +37,10 @@
         /* Hero Section with GIF background */
         .hero {
             position: relative;
-            height: 100vh;  /* Adjust the height to be less tall */
-            background: url('215982.gif') no-repeat center center/cover;
+            height: 100vh;  /* Adjust the height to be full viewport */
+            background: url('215982.gif') no-repeat top center/cover;  /* Ensure the GIF is aligned to the top */
             overflow: hidden;
+            margin-top: 0;  /* Remove any space at the top */
         }
 
         .hero-content {
