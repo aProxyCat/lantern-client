@@ -29,18 +29,20 @@
 
         /* Icon Image at the Top */
         .icon-image {
-            display: block;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 60px;  /* Adjust image size */
-            margin: 20px auto;  /* Center the image */
+            z-index: 10;  /* Ensure the icon stays on top */
         }
 
         /* Hero Section with GIF background */
         .hero {
             position: relative;
-            height: 100vh;  /* Adjust the height to be full viewport */
-            background: url('215982.gif') no-repeat top center/cover;  /* Ensure the GIF is aligned to the top */
+            height: 100vh;  /* Adjust the height to be less tall */
+            background: url('215982.gif') no-repeat center center/cover;
             overflow: hidden;
-            margin-top: 0;  /* Remove any space at the top */
         }
 
         .hero-content {
@@ -264,14 +266,4 @@
                                 resultsContainer.appendChild(resultItem);
                             });
                         } else {
-                            resultsContainer.innerHTML = '<p>No results found</p>';
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Search error:', error);
-                    });
-            }
-        }
-    </script>
-</body>
-</html>
+                            resultsContainer
