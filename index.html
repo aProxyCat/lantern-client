@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lantern Client - A powerful proxy and unblocker.">
+    <meta name="description" content="Lantern Client - A powerful tool.">
     <meta name="author" content="Your Name">
     <title>Lantern Client</title>
     <link rel="stylesheet" href="styles.css">
@@ -179,12 +179,6 @@
             text-decoration: underline;
         }
     </style>
-
-    <!-- Link the proxy JavaScript files -->
-    <script src="Ultraviolet/uv.bundle.js"></script>
-    <script src="Ultraviolet/uv.handler.js"></script>
-    <script src="Ultraviolet/uv.sw.js"></script>
-    <script src="Ultraviolet/uv.config.js"></script>
 </head>
 <body>
 
@@ -200,13 +194,8 @@
 
         <!-- Search Bar Section -->
         <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search..." oninput="searchData()">
+            <input type="text" id="searchInput" placeholder="Search...">
         </div>
-    </div>
-
-    <!-- Search Results -->
-    <div class="search-results" id="searchResults">
-        <!-- Results will be displayed here -->
     </div>
 
     <!-- Main Content -->
@@ -237,42 +226,5 @@
         <p>Designed with ❤️ by Your Name | <a href="mailto:youremail@example.com">Contact Us</a></p>
     </footer>
 
-    <!-- Initialize the proxy (if necessary) -->
-    <script>
-        // Example: Initialize the proxy (if necessary)
-        if (typeof uv !== 'undefined') {
-            uv.init();  // Assuming there's an init method 
-        }
-
-        // Function to handle the search
-        function searchData() {
-            const query = document.getElementById('searchInput').value;
-            if (query.length < 3) {
-                document.getElementById('searchResults').innerHTML = ''; // Clear results if query is too short
-                return;
-            }
-
-            // Send the search query to the proxy (replace with actual proxy handling logic)
-            // Assuming the proxy has a function like uv.search(query) or similar
-            if (typeof uv !== 'undefined') {
-                uv.search(query)
-                    .then(results => {
-                        // Display results (adjust this based on how results are returned)
-                        const resultsContainer = document.getElementById('searchResults');
-                        resultsContainer.innerHTML = ''; // Clear previous results
-
-                        if (results.length > 0) {
-                            results.forEach(result => {
-                                const resultItem = document.createElement('div');
-                                resultItem.className = 'search-result-item';
-                                resultItem.innerHTML = `<h4>${result.title}</h4><p>${result.description}</p>`;
-                                resultsContainer.appendChild(resultItem);
-                            });
-                        } else {
-                            resultsContainer.innerHTML = '<p>No results found</p>';
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Search error:', error);
-                    });
-           
+</body>
+</html>
