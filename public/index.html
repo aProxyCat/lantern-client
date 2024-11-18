@@ -1,239 +1,96 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Lantern Client - A powerful tool.">
-        <meta name="author" content="Your Name">
-        <title>Lantern Client</title>
-        <style>
-            /* General resets */
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lantern Client - A powerful tool.">
+    <meta name="author" content="Your Name">
+    <title>Lantern Client</title>
+    <style>
+        /* General resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-            /* Ensure html and body cover the full viewport */
-            html, body {
-                height: 100%; /* Make sure the height of both elements is 100% */
-                font-family: 'Arial', sans-serif;
-                line-height: 1.6;
-                background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed; /* Apply background */
-                background-size: cover; /* Ensure the background image covers the entire screen */
-                color: #ffffff;
-                margin: 0; /* Remove default margin */
-            }
+        /* Ensure html and body cover the full viewport */
+        html, body {
+            height: 100%; /* Make sure the height of both elements is 100% */
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed; /* Apply background */
+            background-size: cover; /* Ensure the background image covers the entire screen */
+            color: #ffffff;
+            margin: 0; /* Remove default margin */
+        }
 
-            /* Search Bar */
-            .search-bar {
-                width: 500px;
-                height: 60px;
-                margin-bottom: 0; /* Remove extra margin below the search bar */
-            }
+        /* Search Bar */
+        .search-bar {
+            width: 500px;
+            height: 60px;
+            margin-top: 20px;
+        }
 
-            .search-bar input {
-                padding: 10px;
-                font-size: 1.2rem;
-                width: 100%;
-                height: 100%;
-                border: 1px solid #ccc;
-                border-radius: 10px;
-                background-color: rgba(0, 0, 0, 0.6);
-                color: #ffffff;
-                font-family: Arial, sans-serif;
-                transition: background-color 0.3s ease-in-out;
-            }
+        .search-bar input {
+            padding: 10px;
+            font-size: 1.2rem;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease-in-out;
+        }
 
-            .search-bar input:focus {
-                background-color: rgba(0, 0, 0, 0.8);
-                outline: none;
-            }
+        .search-bar input:focus {
+            background-color: rgba(0, 0, 0, 0.8);
+            outline: none;
+        }
 
-            /* Hero Section with Text Content */
-            .hero {
-                position: relative;
-                height: 100vh; /* Take full viewport height */
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                margin-bottom: 0; /* Ensure no margin at the bottom */
-            }
+        /* Hero Section with Text Content */
+        .hero {
+            position: relative;
+            height: 100vh; /* Take full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-            .hero-content {
-                font-family: 'New Amsterdam', sans-serif;
-                font-size: 2em;
-            }
+        .hero-content {
+            font-family: 'New Amsterdam', sans-serif;
+            font-size: 2em;
+        }
 
-            .hero h2 {
-                font-size: 6rem;
-                margin-bottom: 10px;
-            }
+        .hero h2 {
+            font-size: 6rem;
+            margin-bottom: 10px;
+        }
 
-            .hero p {
-                font-size: 1.1rem;
-                margin-bottom: 20px;
-            }
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+</head>
+<body>
 
-            /* Header with Buttons - Positioned horizontally below the search bar */
-            .header {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 10px; /* Reduced space between icons */
-                margin-top: 10px;
-            }
-
-            .header img {
-                width: 50px; /* Set fixed size for the icons */
-                height: 50px; /* Set fixed size for the icons */
-                cursor: pointer;
-                object-fit: contain;
-            }
-
-            /* Main Content */
-            .main-content {
-                padding: 40px 20px;
-                text-align: center;
-                color: white;
-                margin-top: 0; /* Ensure no space between hero and main content */
-            }
-
-            .main-content h2 {
-                font-size: 2rem;
-                margin-bottom: 20px;
-                color: white;
-            }
-
-            .main-content p {
-                font-size: 1.1rem;
-                margin-bottom: 40px;
-                max-width: 800px;
-                margin-left: auto;
-                margin-right: auto;
-                color: white;
-            }
-
-            /* Features Section */
-            .features {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 30px;
-                margin-bottom: 40px;
-            }
-
-            .feature-item {
-                background-color: rgba(255, 255, 255, 0.1);
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-                padding: 20px;
-                text-align: center;
-                transition: transform 0.3s ease-in-out;
-                color: white;
-            }
-
-            .feature-item:hover {
-                transform: translateY(-10px);
-            }
-
-            .feature-item h3 {
-                font-size: 1.5rem;
-                margin-bottom: 15px;
-            }
-
-            .feature-item p {
-                font-size: 1rem;
-                color: #ddd;
-            }
-
-            /* Footer */
-            footer {
-                background-color: transparent;
-                color: white;
-                text-align: center;
-                padding: 20px;
-                font-size: 0.9rem;
-            }
-
-            footer a {
-                color: #FF6F61;
-            }
-
-            footer a:hover {
-                text-decoration: underline;
-            }
-        </style>
-        <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
-
-        <script src="/uv/uv.bundle.js"></script>
-        <script src="/uv/uv.config.js"></script>
-
-        <script>
-            if ("serviceWorker" in navigator) {
-                window.addEventListener("load", () => {
-                    navigator.serviceWorker.register("/uv/sw.js", {
-                        scope: __uv$config.prefix,
-                    });
-                });
-            }
-        </script>
-
-        <link rel="stylesheet" href="example.css">
-    </head>
-    <body>
-
-        <!-- Hero Section with GIF background -->
-        <div class="hero">
-            <!-- Lantern Client text -->
-            <div class="hero-content">
-                <h2>Lantern Client</h2>
-            </div>
-
-            <!-- Header with Buttons -->
-            <div class="header">
-                <a href="apps.html">
-                    <img src="apps.png" alt="Apps">  <!-- Icon for Apps -->
-                </a>
-                <a href="games.html" class="games-button">
-                    <img src="games icon.webp" alt="Go to Games Page">
-                </a>
-            </div>
+    <!-- Hero Section with GIF background -->
+    <div class="hero">
+        <div class="hero-content">
+            <h2>Lantern Client</h2>
         </div>
 
-        <!-- Main Content -->
-        <section class="main-content">
-            <h2>About Lantern Client</h2>
-            <p>Lantern Client is the all together one-stop shop for your unblocking and gaming desires, from our streamlined and powerful web proxy to our extensive range of unblocked games, we've gotchu covered.</p>
+        <!-- Search Bar Form -->
+        <form class="search-bar" action="results.html" method="GET" target="_blank">
+            <input type="text" name="searchQuery" placeholder="Enter your search" required>
+        </form>
+    </div>
 
-            <!-- Features -->
-            <div class="features" id="features">
-                <div class="feature-item">
-                    <h3>Built-in Proxy</h3>
-                    <p>Seamlessly browse the internet uncensored with the power of built-in ultraviolet</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Seamless App Integration</h3>
-                    <p>Lantern Client offers seamless integration of all the apps that you need</p>
-                </div>
-                <div class="feature-item">
-                    <h3>Enhanced Gaming</h3>
-                    <p>Play all of your favorite games in fullscreen with Lantern Client's superior gaming options</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 Lantern Client. All rights reserved.</p>
-            <p>Designed by your favorite bums: NinjaComputr & imTear | <a href="mailto:youremail@example.com">Contact Us</a></p>
-        </footer>
-
-        <input type="text" id="urlInput" placeholder="Enter URL here">
-        <button id="searchButton">Search Text</button>
-
-        <iframe id="iframeWindow" class="iframeWindow"></iframe>
-    </body>
-    <script src="example.js"></script>
+</body>
 </html>
