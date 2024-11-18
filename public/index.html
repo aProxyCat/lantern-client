@@ -1,32 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lantern Client - A powerful tool.">
-    <meta name="author" content="Your Name">
-    <title>Lantern Client</title>
-    <style>
-  /* General resets */
+/* General resets */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    height: 100%; /* Make sure the height of both elements is 100% */
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed;
-    background-size: cover;
+    background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed; /* Apply background to both */
+    background-size: cover; /* Ensure the background image covers the entire screen */
     color: #ffffff;
-    margin-bottom: 0; /* Ensure no extra margin at the bottom of the body */
+    margin: 0; /* Remove default margin */
 }
 
+/* Remove space below the search bar */
 .search-bar {
     width: 500px;
     height: 60px;
-    margin-bottom: 0; /* Remove extra margin below the search bar */
+    margin-bottom: 0; /* Remove any margin under the search bar */
 }
 
 .search-bar input {
@@ -50,13 +43,13 @@ body {
 /* Optional: Remove bottom margin on other elements if needed */
 .hero {
     position: relative;
-    height: 100vh;
+    height: 100vh; /* Take full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-bottom: 0; /* Ensure no margin pushing the footer */
+    margin-bottom: 0; /* Remove any extra margin below hero section */
 }
 
 /* Main Content */
@@ -64,7 +57,7 @@ body {
     padding: 40px 20px;
     text-align: center;
     color: white;
-    margin-top: 0; /* If there's space above the content */
+    margin-top: 0; /* Ensure no space between hero and main content */
 }
 
 .main-content h2 {
@@ -81,77 +74,3 @@ body {
     margin-right: auto;
     color: white;
 }
-
-</style>
-    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
-
-        <script src="/uv/uv.bundle.js"></script>
-        <script src="/uv/uv.config.js"></script>
-
-        <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/uv/sw.js", {
-                    scope: __uv$config.prefix,
-                });
-            });
-        }
-        </script>
-
-        <link rel="stylesheet" href="example.css">
-    </head>
-    <body>
-        
-    <!-- Hero Section with GIF background -->
-    <div class="hero">
-        <!-- Lantern Client text -->
-        <div class="hero-content">
-            <h2>Lantern Client</h2>
-        </div>
-
-        <!-- Header with Buttons -->
-        <div class="header">
-            <a href="apps.html">
-                <img src="apps.png" alt="Apps">  <!-- Icon for Apps -->
-            </a>
-            <a href="games.html" class="games-button">
-                <img src="games icon.webp" alt="Go to Games Page">
-            </a>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <section class="main-content">
-        <h2>About Lantern Client</h2>
-        <p>Lantern Client is the all together one-stop shop for your unblocking and gaming desires, from our streamlined and powerful web proxy to our extensive range of unblocked games, we've gotchu covered.</p>
-
-        <!-- Features -->
-        <div class="features" id="features">
-            <div class="feature-item">
-                <h3>Built-in Proxy</h3>
-                <p>Seamlessly browse the internet uncensored with the power of built-in ultraviolet</p>
-            </div>
-            <div class="feature-item">
-                <h3>Seamless App Integration</h3>
-                <p>Lantern Client offers seamless integration of all the apps that you need</p>
-            </div>
-            <div class="feature-item">
-                <h3>Enhanced Gaming</h3>
-                <p>Play all of your favorite games in fullscreen with Lantern Client's superior gaming options</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Lantern Client. All rights reserved.</p>
-        <p>Designed by your favorite bums: NinjaComputr & imTear | <a href="mailto:youremail@example.com">Contact Us</a></p>
-    </footer>
-
-        <input type="text" id="urlInput" placeholder="Enter URL here">
-        <button id="searchButton">Search Text</button>
-
-        <iframe id="iframeWindow" class="iframeWindow"></iframe>
-    </body>
-    <script src="example.js"></script>
-</html>
