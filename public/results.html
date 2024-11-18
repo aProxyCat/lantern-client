@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .result-box {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .result-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .result-box p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="result-box">
+        <h2>Your Search Results</h2>
+        <p id="searchResult">Loading...</p>
+    </div>
+
+    <script>
+        // Get the query parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('searchQuery');
+
+        // Display the search query inside the result box
+        document.getElementById('searchResult').textContent = `You searched for: ${searchQuery}`;
+    </script>
+
+</body>
+</html>
