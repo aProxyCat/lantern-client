@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lantern Client</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('water.gif') no-repeat center center fixed;
+            background-size: 120%;
+        }
+        /* Title button styling */
+        .title-button {
+            font-family: 'New Amsterdam', cursive;
+            font-size: 48px;
+            color: white;
+            text-align: center;
+            display: inline-block;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .title-button:hover {
+            color: #ffd700;
+            transform: scale(1.1); /* Slightly enlarge text on hover */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .app-card {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .app-card:hover {
+            transform: translateY(-10px); /* Moves the card up slightly */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhances shadow on hover */
+        }
+        .app-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .app-card h3 {
+            margin: 15px 0 10px;
+            font-size: 18px;
+        }
+        .app-card p {
+            font-size: 14px;
+            color: #555;
+        }
+        .download-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .download-btn:hover {
+            background-color: #555;
+        }
+    </style>
+    <!-- Import New Amsterdam font -->
+    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Title button linking to index.html -->
+    <div style="text-align: center;">
+        <a href="index.html" class="title-button">Lantern Client</a>
+    </div>
+
+    <div class="container">
+        <!-- Featured Apps Section -->
+        <div class="section" id="featured-apps">
+            <div class="app-grid">
+                <div class="app-card">
+                    <img src="app1.jpg" alt="App 1">
+                    <h3>App One</h3>
+                    <p>An innovative app for productivity.</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+                <div class="app-card">
+                    <img src="app2.jpg" alt="App 2">
+                    <h3>App Two</h3>
+                    <p>Stay connected with friends and family.</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+                <div class="app-card">
+                    <img src="app3.jpg" alt="App 3">
+                    <h3>App Three</h3>
+                    <p>A useful app for managing tasks.</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+                <div class="app-card">
+                    <img src="app4.jpg" alt="App 4">
+                    <h3>App Four</h3>
+                    <p>Organize your day with this scheduling app.</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+                <div class="app-card">
+                    <img src="app5.jpg" alt="App 5">
+                    <h3>App Five</h3>
+                    <p>Discover new music and playlists with this app.</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+                <div class="app-card">
+                    <img src="app6.jpg" alt="App 6">
+                    <h3>App Six</h3>
+                    <p>Get personalized fitness plans with this app.</p>
+                    <a href="#" class="download-btn">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
