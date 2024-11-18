@@ -16,13 +16,13 @@
 
         /* Ensure html and body cover the full viewport */
         html, body {
-            height: 100%; /* Make sure the height of both elements is 100% */
+            height: 100%;
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed; /* Apply background */
-            background-size: cover; /* Ensure the background image covers the entire screen */
+            background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed;
+            background-size: cover;
             color: #ffffff;
-            margin: 0; /* Remove default margin */
+            margin: 0;
             display: flex;
             flex-direction: column;
         }
@@ -30,13 +30,13 @@
         /* Hero Section with Text Content */
         .hero {
             position: relative;
-            height: 100vh; /* Take full viewport height */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            margin-bottom: 0; /* Ensure no margin at the bottom */
+            margin-bottom: 0;
         }
 
         .hero-content {
@@ -77,6 +77,38 @@
             color: white;
         }
 
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            color: white;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: #ddd;
+        }
+
         /* Footer */
         footer {
             background-color: transparent;
@@ -104,11 +136,11 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            margin-top: auto; /* Pushes the search container to the bottom */
         }
 
         .search-bar {
             width: 500px;
-            height: 60px;
             margin-bottom: 10px;
         }
 
@@ -116,7 +148,7 @@
             padding: 10px;
             font-size: 1.2rem;
             width: 100%;
-            height: 100%;
+            height: 50px;
             border: 1px solid #ccc;
             border-radius: 10px;
             background-color: rgba(0, 0, 0, 0.6);
@@ -130,12 +162,29 @@
             outline: none;
         }
 
+        .search-bar button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            background-color: #FF6F61;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .search-bar button:hover {
+            background-color: #ff4a3e;
+        }
+
         iframe {
             width: 100%;
             height: 500px;
             border: none;
             margin-top: 20px;
         }
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
 </head>
@@ -143,15 +192,13 @@
 
     <!-- Hero Section with GIF background -->
     <div class="hero">
-        <!-- Lantern Client text -->
         <div class="hero-content">
             <h2>Lantern Client</h2>
         </div>
 
-        <!-- Header with Buttons -->
         <div class="header">
             <a href="apps.html">
-                <img src="apps.png" alt="Apps">  <!-- Icon for Apps -->
+                <img src="apps.png" alt="Apps">
             </a>
             <a href="games.html" class="games-button">
                 <img src="games icon.webp" alt="Go to Games Page">
@@ -164,7 +211,6 @@
         <h2>About Lantern Client</h2>
         <p>Lantern Client is the all together one-stop shop for your unblocking and gaming desires, from our streamlined and powerful web proxy to our extensive range of unblocked games, we've gotchu covered.</p>
 
-        <!-- Features -->
         <div class="features" id="features">
             <div class="feature-item">
                 <h3>Built-in Proxy</h3>
