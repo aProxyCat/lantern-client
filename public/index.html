@@ -1,219 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="icon" sizes="192x192" href="favicon.png">
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lantern Client - A powerful tool.">
     <meta name="author" content="Your Name">
     <title>Lantern Client</title>
     <style>
-        /* General resets */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    /* General resets */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        /* Ensure html and body cover the full viewport */
-        html, body {
-            height: 100%; /* Make sure the height of both elements is 100% */
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed; /* Apply background */
-            background-size: cover; /* Ensure the background image covers the entire screen */
-            color: #ffffff;
-            margin: 0; /* Remove default margin */
-            display: flex;
-            flex-direction: column;
-        }
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed;
+        background-size: cover;
+        color: #ffffff;
+    }
 
-        /* Hero Section with Text Content */
-        .hero {
-            position: relative;
-            height: 100vh; /* Take full viewport height */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 0; /* Ensure no margin at the bottom */
-        }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 
-        .hero-content {
-            font-family: 'New Amsterdam', sans-serif;
-            font-size: 2em;
-        }
+    /* Hero Section with Text Content */
+    .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 
-        .hero h2 {
-            font-size: 6rem;
-            margin-bottom: 10px;
-        }
+    .hero-content {
+        font-family: 'New Amsterdam', sans-serif;
+        font-size: 2em;
+    }
 
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
+    .hero h2 {
+        font-size: 6rem;
+        margin-bottom: 10px;
+    }
 
-        /* Header with Buttons */
-        .header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px; /* Reduced space between icons */
-            margin-top: 10px;
-        }
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
 
-        .header img {
-            width: 50px; /* Set fixed size for the icons */
-            height: 50px; /* Set fixed size for the icons */
-            cursor: pointer;
-            object-fit: contain;
-        }
+    /* Header with Buttons - Positioned horizontally below the search bar */
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px; /* Reduced space between icons */
+        margin-top: 10px;
+    }
 
-        /* Main Content */
-        .main-content {
-            padding: 40px 20px;
-            text-align: center;
-            color: white;
-            margin-top: 0; /* Ensure no space between hero and main content */
-        }
+    .header img {
+        width: 50px; /* Set fixed size for the icons */
+        height: 50px; /* Set fixed size for the icons */
+        cursor: pointer;
+        object-fit: contain;
+        transition: transform 0.3s ease; /* Add transition for smooth scaling */
+    }
 
-        .main-content h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: white;
-        }
+    /* Hover effect for the Games and Apps buttons */
+    .header a:hover img {
+        transform: scale(1.1); /* Scale the image to 110% of its size on hover */
+    }
 
-        .main-content p {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: white;
-        }
+    .cta-button {
+        background-color: #FF6F61;
+        color: white;
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
 
-        /* Features Section */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
+    .cta-button:hover {
+        background-color: #ff3f2a;
+    }
 
-        .feature-item {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease-in-out;
-            color: white;
-        }
+    /* Main Content */
+    .main-content {
+        padding: 40px 20px;
+        text-align: center;
+        color: white;
+    }
 
-        .feature-item:hover {
-            transform: translateY(-10px);
-        }
+    .main-content h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: white;
+    }
 
-        .feature-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
+    .main-content p {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+    }
 
-        .feature-item p {
-            font-size: 1rem;
-            color: #ddd;
-        }
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+    }
 
-        /* Footer */
-        footer {
-            background-color: transparent;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
+    .feature-item {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+        color: white;
+    }
 
-        footer a {
-            color: #FF6F61;
-        }
+    .feature-item:hover {
+        transform: translateY(-10px);
+    }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+    .feature-item h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
 
-        /* Search Bar and Iframe - Positioned at the bottom */
-        .search-container {
-            width: 100%;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: auto; /* Pushes the search container to the bottom */
-        }
+    .feature-item p {
+        font-size: 1rem;
+        color: #ddd;
+    }
 
-        .search-bar {
-            width: 500px;
-            margin-bottom: 10px;
-        }
+    /* Footer */
+    footer {
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+    }
 
-        .search-bar input {
-            padding: 10px;
-            font-size: 1.2rem;
-            width: 100%;
-            height: 50px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            transition: background-color 0.3s ease-in-out;
-        }
+    footer a {
+        color: #FF6F61;
+    }
 
-        .search-bar input:focus {
-            background-color: rgba(0, 0, 0, 0.8);
-            outline: none;
-        }
-
-        .search-bar button {
-            width: 100%;
-            padding: 10px;
-            font-size: 1.2rem;
-            background-color: #FF6F61;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .search-bar button:hover {
-            background-color: #ff4a3e;
-        }
-
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-            margin-top: 20px;
-            background-color: #000;
-        }
-    </style>
+    footer a:hover {
+        text-decoration: underline;
+    }
+</style>
     <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- Hero Section with GIF background -->
     <div class="hero">
+        <!-- Lantern Client text -->
         <div class="hero-content">
             <h2>Lantern Client</h2>
         </div>
 
+        <!-- Header with Buttons -->
         <div class="header">
             <a href="apps.html">
-                <img src="apps.png" alt="Apps">
+                <img src="apps.png" alt="Apps">  <!-- Icon for Apps -->
             </a>
             <a href="games.html" class="games-button">
                 <img src="games icon.webp" alt="Go to Games Page">
@@ -226,6 +191,7 @@
         <h2>About Lantern Client</h2>
         <p>Lantern Client is the all together one-stop shop for your unblocking and gaming desires, from our streamlined and powerful web proxy to our extensive range of unblocked games, we've gotchu covered.</p>
 
+        <!-- Features -->
         <div class="features" id="features">
             <div class="feature-item">
                 <h3>Built-in Proxy</h3>
@@ -248,24 +214,5 @@
         <p>Designed by your favorite bums: NinjaComputr & imTear | <a href="mailto:youremail@example.com">Contact Us</a></p>
     </footer>
 
-    <!-- Search Bar and Iframe at the bottom of the page -->
-    <div class="search-container">
-        <div class="search-bar">
-            <input type="text" id="urlInput" placeholder="Enter URL here">
-            <button id="searchButton">Search Text</button>
-        </div>
-
-        <!-- Iframe below the search bar -->
-        <iframe id="iframeWindow" class="iframeWindow"></iframe>
-    </div>
-
-    <script>
-        // Example JS to load content into iframe dynamically (if desired)
-        document.getElementById('searchButton').addEventListener('click', function() {
-            var url = document.getElementById('urlInput').value;
-            var iframe = document.getElementById('iframeWindow');
-            iframe.src = url; // Load the URL entered in the iframe
-        });
-    </script>
 </body>
 </html>
