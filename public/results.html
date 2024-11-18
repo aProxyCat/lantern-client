@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Results</title>
-    <script src="/uv/uv.bundle.js"></script>
-    <script src="/uv/uv.config.js"></script>
-    <script>
+<html>
+    <head>
+        <script src="/uv/uv.bundle.js"></script>
+        <script src="/uv/uv.config.js"></script>
+
+        <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", () => {
                 navigator.serviceWorker.register("/uv/sw.js", {
@@ -14,30 +12,13 @@
                 });
             });
         }
-    </script>
-    <link rel="stylesheet" href="example.css">
-</head>
-<body>
+        </script>
 
-    <!-- Iframe to display the search content -->
-    <iframe id="iframeWindow" class="iframeWindow"></iframe>
+        <link rel="stylesheet" href="example.css">
+    </head>
+    <body>
 
-    <script>
-        // Get the query parameter from the URL (searchQuery)
-        const urlParams = new URLSearchParams(window.location.search);
-        const searchQuery = urlParams.get('searchQuery');
-
-        // If searchQuery exists, set iframe src to show relevant results
-        if (searchQuery) {
-            const iframe = document.getElementById('iframeWindow');
-            const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
-            iframe.src = searchUrl;  // Example: Google search for the search term
-        } else {
-            // If no search query exists, redirect to an error or homepage
-            alert("No search query provided.");
-            window.location.href = "index.html";  // Redirect to homepage if no search term is present
-        }
-    </script>
-
-</body>
+        <iframe id="iframeWindow" class="iframeWindow"></iframe>
+    </body>
+    <script src="example.js"></script>
 </html>
