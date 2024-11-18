@@ -15,12 +15,35 @@
         </script>
 
         <link rel="stylesheet" href="example.css">
+        <style>
+            /* Style for the bottom-left button */
+            .back-button {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .back-button:hover {
+                background-color: #0056b3;
+            }
+        </style>
     </head>
     <body>
         <input type="text" id="urlInput" placeholder="Enter URL here">
         <button id="searchButton">Search Text</button>
 
         <iframe id="iframeWindow" class="iframeWindow"></iframe>
+
+        <!-- Back to Home Button -->
+        <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
     </body>
     <script src="example.js"></script>
 </html>
