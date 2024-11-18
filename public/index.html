@@ -16,13 +16,13 @@
 
         /* Ensure html and body cover the full viewport */
         html, body {
-            height: 100%;
+            height: 100%; /* Make sure the height of both elements is 100% */
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed;
-            background-size: cover;
+            background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed; /* Apply background */
+            background-size: cover; /* Ensure the background image covers the entire screen */
             color: #ffffff;
-            margin: 0;
+            margin: 0; /* Remove default margin */
             display: flex;
             flex-direction: column;
         }
@@ -30,13 +30,13 @@
         /* Hero Section with Text Content */
         .hero {
             position: relative;
-            height: 100vh;
+            height: 100vh; /* Take full viewport height */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            margin-bottom: 0;
+            margin-bottom: 0; /* Ensure no margin at the bottom */
         }
 
         .hero-content {
@@ -54,12 +54,28 @@
             margin-bottom: 20px;
         }
 
+        /* Header with Buttons */
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Reduced space between icons */
+            margin-top: 10px;
+        }
+
+        .header img {
+            width: 50px; /* Set fixed size for the icons */
+            height: 50px; /* Set fixed size for the icons */
+            cursor: pointer;
+            object-fit: contain;
+        }
+
         /* Main Content */
         .main-content {
             padding: 40px 20px;
             text-align: center;
             color: white;
-            flex-grow: 1; /* This allows the content to expand and push the search bar to the bottom */
+            margin-top: 0; /* Ensure no space between hero and main content */
         }
 
         .main-content h2 {
@@ -135,7 +151,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative;
             margin-top: auto; /* Pushes the search container to the bottom */
         }
 
@@ -184,7 +199,6 @@
             border: none;
             margin-top: 20px;
         }
-
     </style>
     <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
 </head>
@@ -233,7 +247,7 @@
         <p>Designed by your favorite bums: NinjaComputr & imTear | <a href="mailto:youremail@example.com">Contact Us</a></p>
     </footer>
 
-    <!-- Search Bar and Iframe (Placed at the bottom of the page) -->
+    <!-- Search Bar and Iframe at the bottom of the page -->
     <div class="search-container">
         <div class="search-bar">
             <input type="text" id="urlInput" placeholder="Enter URL here">
