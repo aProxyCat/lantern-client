@@ -1,63 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="/uv/uv.bundle.js"></script>
-    <script src="/uv/uv.config.js"></script>
+<html>
+    <head>
+        <script src="/uv/uv.bundle.js"></script>
+        <script src="/uv/uv.config.js"></script>
 
-    <script>
-    if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-            navigator.serviceWorker.register("/uv/sw.js", {
-                scope: __uv$config.prefix,
+        <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("/uv/sw.js", {
+                    scope: __uv$config.prefix,
+                });
             });
-        });
-    }
-    </script>
-
-    <!-- Link to External or Internal Stylesheet -->
-    <link rel="stylesheet" href="example.css">
-
-    <!-- Inline Styles for Search Bar from First Code Snippet -->
-    <style>
-        /* Search Bar Styling from First Code Snippet */
-        .search-bar {
-            width: 500px;
-            height: 60px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
+        </script>
 
-        .search-bar input {
-            padding: 10px;
-            font-size: 1.2rem;
-            width: 100%;
-            height: 100%;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .search-bar input:focus {
-            background-color: rgba(0, 0, 0, 0.8);
-            outline: none;
-        }
-    </style>
-</head>
-<body>
-    <!-- Search Bar with Same Functionality but New Styling -->
-    <div class="search-bar">
+        <link rel="stylesheet" href="example.css">
+    </head>
+    <body>
         <input type="text" id="urlInput" placeholder="Enter URL here">
-    </div>
-    <button id="searchButton">Search Text</button>
+        <button id="searchButton">Search Text</button>
 
-    <!-- Iframe for Displaying Content -->
-    <iframe id="iframeWindow" class="iframeWindow"></iframe>
-
+        <iframe id="iframeWindow" class="iframeWindow"></iframe>
+    </body>
     <script src="example.js"></script>
-</body>
 </html>
