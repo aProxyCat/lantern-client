@@ -1,26 +1,251 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <script src="/uv/uv.bundle.js"></script>
-        <script src="/uv/uv.config.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lantern Client - A powerful tool.">
+    <meta name="author" content="Your Name">
+    <title>Lantern Client</title>
+    <style>
+    /* General resets */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/uv/sw.js", {
-                    scope: __uv$config.prefix,
-                });
-            });
-        }
-        </script>
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        background: url('jake-comingheremoreoftenlately.gif') no-repeat center center fixed;
+        background-size: cover;
+        color: #ffffff;
+    }
 
-        <link rel="stylesheet" href="example.css">
-    </head>
-    <body>
-        <input type="text" id="urlInput" placeholder="Enter URL here">
-        <button id="searchButton">Search Text</button>
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 
-        <iframe id="iframeWindow" class="iframeWindow"></iframe>
-    </body>
-    <script src="example.js"></script>
+    /* Hero Section with Text Content */
+    .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-content {
+        font-family: 'New Amsterdam', sans-serif;
+        font-size: 2em;
+    }
+
+    .hero h2 {
+        font-size: 6rem;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    /* Search Bar */
+    .search-bar {
+        width: 500px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+
+    .search-bar input {
+        padding: 10px;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .search-bar input:focus {
+        background-color: rgba(0, 0, 0, 0.8);
+        outline: none;
+    }
+
+    /* Header with Buttons - Positioned horizontally below the search bar */
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .header img {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        object-fit: contain;
+    }
+
+    .cta-button {
+        background-color: #FF6F61;
+        color: white;
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #ff3f2a;
+    }
+
+    /* Main Content */
+    .main-content {
+        padding: 40px 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .main-content h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    .main-content p {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .feature-item {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+        color: white;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .feature-item h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .feature-item p {
+        font-size: 1rem;
+        color: #ddd;
+    }
+
+    /* Footer */
+    footer {
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    footer a {
+        color: #FF6F61;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hero Section with GIF background -->
+    <div class="hero">
+        <!-- Lantern Client text and search bar -->
+        <div class="hero-content">
+            <h2>Lantern Client</h2>
+            <p>Explore uncensored content with ease.</p>
+        </div>
+
+        <!-- Search Bar Section (URL input) -->
+        <div class="search-bar">
+            <input type="url" id="urlInput" placeholder="Enter URL or search..." />
+        </div>
+
+        <!-- Header with Buttons -->
+        <div class="header">
+            <a href="apps.html">
+                <img src="apps.png" alt="Apps">  <!-- Icon for Apps -->
+            </a>
+            <a href="games.html">
+                <img src="games icon.webp" alt="Go to Games Page">
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <h2>About Lantern Client</h2>
+        <p>Lantern Client is your one-stop-shop for uncensored browsing and a superior gaming experience. Enjoy seamless web browsing through our powerful proxy and explore a vast collection of unblocked games.</p>
+
+        <!-- Features -->
+        <div class="features">
+            <div class="feature-item">
+                <h3>Built-in Proxy</h3>
+                <p>Browse the internet with our built-in ultraviolet proxy.</p>
+            </div>
+            <div class="feature-item">
+                <h3>App Integration</h3>
+                <p>Lantern Client integrates with all the apps you need for a seamless experience.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Enhanced Gaming</h3>
+                <p>Play your favorite games in fullscreen with optimized performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Lantern Client. All rights reserved.</p>
+        <p>Designed by your favorite bums: NinjaComputr & imTear | <a href="mailto:youremail@example.com">Contact Us</a></p>
+    </footer>
+
+    <script>
+        // Add basic form submission or action to the URL input (if needed)
+        const urlInput = document.getElementById('urlInput');
+        urlInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const url = urlInput.value;
+                if (url) {
+                    // Redirect to the entered URL or perform an action
+                    window.location.href = url;
+                }
+            }
+        });
+    </script>
+
+</body>
 </html>
