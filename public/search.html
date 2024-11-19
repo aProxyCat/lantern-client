@@ -27,6 +27,27 @@
             height: 100vh; /* Ensure the body takes full viewport height */
         }
 
+        /* Back to Home Button */
+        .back-button {
+            position: fixed;
+            top: 20px; /* Move the button to the top */
+            left: 20px; /* Align it to the left */
+            background-color: #ffffff; /* White background */
+            color: black; /* Black text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: #f2f2f2; /* Slightly darker white on hover */
+            transform: scale(1.05);
+        }
+
         /* Search Bar Container */
         .search-container {
             display: flex;
@@ -87,29 +108,12 @@
             border: none;
         }
 
-        /* Back to Home Button */
-        .back-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #ffffff; /* White background */
-            color: black; /* Black text */
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .back-button:hover {
-            background-color: #f2f2f2; /* Slightly darker white on hover */
-            transform: scale(1.05);
-        }
     </style>
 </head>
 <body>
+    <!-- Back to Home Button -->
+    <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
+
     <!-- Search Bar -->
     <div class="search-container">
         <input type="text" id="urlInput" placeholder="Enter URL here">
@@ -120,9 +124,6 @@
     <div class="iframeContainer">
         <iframe id="iframeWindow" class="iframeWindow"></iframe>
     </div>
-
-    <!-- Back to Home Button -->
-    <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
 </body>
 <script src="example.js"></script>
 </html>
