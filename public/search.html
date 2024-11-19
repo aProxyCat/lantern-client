@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">  
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,7 @@
         });
     }
     </script>
+
     <style>
         body {
             margin: 0;
@@ -38,6 +39,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-right: 10px; /* Space between the button and the search bar */
         }
 
         .back-button:hover {
@@ -53,12 +55,15 @@
             padding: 20px;
             background-color: #000000; /* Black background for the search area */
             z-index: 2; /* Make sure the search bar appears on top */
+            flex-grow: 1;
         }
 
         /* Flex container to align the back button and search bar */
         .search-bar-wrapper {
             display: flex;
-            align-items: center;  /* Aligns the back button and search bar vertically */
+            align-items: center;
+            justify-content: center;  /* Ensure the elements are centered */
+            width: 100%;
         }
 
         /* Search Bar and Button */
@@ -121,10 +126,8 @@
         <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
 
         <!-- Search Bar -->
-        <div class="search-container">
-            <input type="text" id="urlInput" placeholder="Enter URL here">
-            <button id="searchButton">Search</button>
-        </div>
+        <input type="text" id="urlInput" placeholder="Enter URL here">
+        <button id="searchButton">Search</button>
     </div>
 
     <!-- Container for the iframe with background GIF -->
