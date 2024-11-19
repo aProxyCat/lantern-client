@@ -52,3 +52,9 @@ document.getElementById("searchButton").onclick = function(event) {
     // Optionally, log the final encoded URL for debugging
     console.log("Final URL: ", url);
 };
+
+// Add event listener to the Discord button to directly navigate to Discord
+document.getElementById("discordButton").onclick = function() {
+    // Navigate to Discord directly
+    window.location.href = "https://discord.com";
+};
