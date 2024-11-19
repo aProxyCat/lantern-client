@@ -49,30 +49,18 @@
 
         /* Styling for app cards */
         .app-card {
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             width: 128px; /* Limit width of the card */
             height: 128px; /* Limit height of the card */
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Center content vertically */
-            background: none; /* Removed background */
+            display: inline-block;
+            overflow: hidden; /* Ensures no content goes outside the image area */
+            border-radius: 8px; /* Optional: Rounds the corners of the image */
         }
 
-        .app-card:hover {
-            transform: translateY(-10px); /* Moves the card up slightly */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhances shadow on hover */
-        }
-
-        /* Ensure images inside the card fit properly */
         .app-card img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Ensures the image fits inside the card without stretching */
-            border-radius: 8px;
+            width: 100%; /* Ensures the image fills the entire app card */
+            height: 100%; /* Ensures the image fits inside the card without distortion */
+            object-fit: cover; /* Ensures the image covers the entire area, cropping if needed */
+            border-radius: 8px; /* Optional: Rounds the corners of the image */
         }
 
         /* Style for text and button (if needed) */
