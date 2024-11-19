@@ -12,6 +12,7 @@
             background: url('water.gif') no-repeat center center fixed;
             background-size: 100%;
         }
+
         /* Title button styling */
         .title-button {
             font-family: 'New Amsterdam', cursive;
@@ -26,20 +27,25 @@
             text-decoration: none;
             transition: color 0.3s, transform 0.3s;
         }
+
         .title-button:hover {
             color: #ffd700;
             transform: scale(1.1); /* Slightly enlarge text on hover */
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+
         .app-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
+
+        /* Styling for app cards */
         .app-card {
             background: rgba(255, 255, 255, 0.4);
             padding: 15px;
@@ -47,23 +53,37 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 512px; /* Limit width of the card */
+            height: 512px; /* Limit height of the card */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
+
         .app-card:hover {
             transform: translateY(-10px); /* Moves the card up slightly */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhances shadow on hover */
         }
+
+        /* Ensure images inside the card fit properly */
         .app-card img {
             max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensures the image fits inside the card without stretching */
             border-radius: 8px;
         }
+
+        /* Style for text and button */
         .app-card h3 {
             margin: 15px 0 10px;
             font-size: 18px;
         }
+
         .app-card p {
             font-size: 14px;
             color: #555;
         }
+
         .download-btn {
             display: inline-block;
             margin-top: 10px;
@@ -74,6 +94,7 @@
             border-radius: 5px;
             font-size: 14px;
         }
+
         .download-btn:hover {
             background-color: #555;
         }
@@ -93,33 +114,32 @@
             <div class="app-grid">
                 <!-- App 1 -->
                 <a href="gemini.html" class="app-card">
-                    <img src="gemini.png">
+                    <img src="gemini.png" alt="Gemini">
                 </a>
                 
                 <!-- App 2 -->
-                 <a href="gemini.html" class="app-card">
-                    <img src="gemini.png">
+                <a href="gemini.html" class="app-card">
+                    <img src="gemini.png" alt="Gemini">
                 </a>
                 
                 <!-- App 3 -->
-                 <a href="gemini.html" class="app-card">
-                    <img src="gemini.png">
+                <a href="gemini.html" class="app-card">
+                    <img src="gemini.png" alt="Gemini">
                 </a>
                 
                 <!-- App 4 -->
                 <a href="gemini.html" class="app-card">
-                    <img src="gemini.png">
+                    <img src="gemini.png" alt="Gemini">
                 </a>
                 
                 <!-- App 5 -->
                 <a href="gemini.html" class="app-card">
-                    <img src="gemini.png">
+                    <img src="gemini.png" alt="Gemini">
                 </a>
                 
                 <!-- App 6 -->
                 <a href="gemini.html" class="app-card">
-                    <img src="gemini.png">
-                </a>
+                    <img src="gemini.png" alt="Gemini">
                 </a>
             </div>
         </div>
