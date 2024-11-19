@@ -49,16 +49,21 @@
 
         /* Styling for app cards */
         .app-card {
-            display: inline-block;
-            overflow: hidden; /* Ensures no content goes outside the image area */
-            border-radius: 8px; /* Optional: Rounds the corners of the image */
+            width: 128px; /* Fixed width for square */
+            height: 128px; /* Fixed height for square */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px; /* Optional: Rounds the corners */
+            overflow: hidden;
+            background-color: #f0f0f0; /* Background color for empty space */
         }
 
         .app-card img {
-            width: 100%; /* Ensures the image fits its container */
-            height: auto; /* Maintains the image's aspect ratio */
-            object-fit: contain; /* Ensures the image fits inside the card without stretching or cropping */
-            border-radius: 8px; /* Optional: Rounds the corners of the image */
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures the image fits within the square without distortion */
+            border-radius: 8px; /* Optional: Matches the card's rounded corners */
         }
 
         /* Style for text and button (if needed) */
@@ -91,61 +96,4 @@
         <div class="section" id="featured-apps">
             <div class="app-grid">
                 <!-- App 1 -->
-                <a href="discord.html" class="app-card">
-                    <img src="discord.webp" alt="Discord">
-                </a>
-
-                <!-- App 2 -->
-                <a href="gemini.html" class="app-card">
-                    <img src="gemini.webp" alt="Gemini">
-                </a>
-
-                <!-- App 3 -->
-                <a href="gemini.html" class="app-card">
-                    <img src="gemini.png" alt="Gemini">
-                </a>
-
-                <!-- App 4 -->
-                <a href="gemini.html" class="app-card">
-                    <img src="gemini.png" alt="Gemini">
-                </a>
-
-                <!-- App 5 -->
-                <a href="gemini.html" class="app-card">
-                    <img src="gemini.png" alt="Gemini">
-                </a>
-
-                <!-- App 6 -->
-                <a href="movies.html" class="app-card">
-                    <img src="movies.png" alt="Movies">
-                </a>
-
-                <!-- Add more app cards as needed -->
-                <a href="gemini.html" class="app-card">
-                    <img src="gemini.png" alt="Gemini">
-                </a>
-
-                <a href="gemini.html" class="app-card">
-                    <img src="gemini.png" alt="Gemini">
-                </a>
-
-                <a href="gemini.html" class="app-card">
-                    <img src="gemini.png" alt="Gemini">
-                </a>
-
-                <a href="gemini.html" class="app-card">
-                    <img src="gemini.png" alt="Gemini">
-                </a>
-
-                <a href="gemini.html" class="app-card">
-                    <img src="gemini.png" alt="Gemini">
-                </a>
-
-                <a href="gemini.html" class="app-card">
-                    <img src="gemini.png" alt="Gemini">
-                </a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+                <a href="discord.html
