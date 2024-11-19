@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,6 @@
         });
     }
     </script>
-
     <style>
         body {
             margin: 0;
@@ -28,29 +27,11 @@
             height: 100vh; /* Ensure the body takes full viewport height */
         }
 
-        /* Back to Home Button */
-        .back-button {
-            padding: 8px 15px;
-            font-size: 0.9rem;
-            border: none;
-            border-radius: 20px;
-            background-color: #ffffff; /* White background */
-            color: black; /* Black text */
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-right: 10px; /* Space between the button and the search bar */
-        }
-
-        .back-button:hover {
-            background-color: #f2f2f2; /* Slightly darker white on hover */
-            transform: scale(1.05);
-        }
-
-        /* Flex container to align the back button and search bar */
-        .search-bar-wrapper {
+        /* Search Bar Container */
+        .search-container {
             display: flex;
-            align-items: center;  /* Aligns the back button and search bar vertically */
+            justify-content: center;
+            align-items: center;
             padding: 20px;
             background-color: #000000; /* Black background for the search area */
             z-index: 2; /* Make sure the search bar appears on top */
@@ -60,7 +41,6 @@
         #urlInput {
             width: 600px;
             height: 40px;
-            margin-left: 10px;
             margin-right: 10px; /* Space between the input and button */
             padding: 8px;
             font-size: 1rem;
@@ -107,15 +87,31 @@
             border: none;
         }
 
+        /* Back to Home Button (Updated) */
+        .back-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 20px; /* Match the border radius of the search button */
+            background-color: #ffffff; /* White background */
+            color: black; /* Black text */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #f2f2f2; /* Light gray on hover */
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
-    <!-- Search Bar Wrapper (Includes Back Button) -->
-    <div class="search-bar-wrapper">
-        <!-- Back to Home Button -->
-        <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
-
-        <!-- Search Bar -->
+    <!-- Search Bar -->
+    <div class="search-container">
         <input type="text" id="urlInput" placeholder="Enter URL here">
         <button id="searchButton">Search</button>
     </div>
@@ -125,14 +121,8 @@
         <iframe id="iframeWindow" class="iframeWindow"></iframe>
     </div>
 
-    <script>
-        // JavaScript for handling the search functionality
-        document.getElementById('searchButton').addEventListener('click', function() {
-            var url = document.getElementById('urlInput').value;
-            if (url) {
-                document.getElementById('iframeWindow').src = url;
-            }
-        });
-    </script>
+    <!-- Back to Home Button -->
+    <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
 </body>
+<script src="example.js"></script>
 </html>
