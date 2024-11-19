@@ -57,4 +57,4 @@ document.getElementById("searchButton").onclick = function(event) {
 document.getElementById("discordButton").onclick = function() {
     // Navigate to Discord directly
     window.location.href = "https://discord.com";
-};
+}; 
