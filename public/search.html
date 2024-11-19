@@ -23,7 +23,7 @@
             margin: 0;
             left: 0;
             bottom: 0;
-            background-color: #000000;
+            background-color: #fff;
         }
 
         #urlInput {
@@ -47,7 +47,7 @@
             font-size: 1rem;
             border: none;
             border-radius: 20px;
-            background-color: #007BFF;
+            background-color: #000000; /* Black background */
             color: white;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
@@ -55,7 +55,7 @@
         }
 
         #searchButton:hover {
-            background-color: #0056b3;
+            background-color: #333333; /* Dark gray on hover */
             transform: scale(1.05);
         }
 
@@ -63,18 +63,19 @@
             position: fixed;
             bottom: 20px;
             left: 20px;
-            background-color: #007BFF;
-            color: white;
+            background-color: #ffffff; /* White background */
+            color: black; /* Black text */
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .back-button:hover {
-            background-color: #0056b3;
+            background-color: #f2f2f2; /* Slightly darker white on hover */
             transform: scale(1.05);
         }
     </style>
