@@ -14,6 +14,14 @@
     }
     </script>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000; /* Black background for the entire site */
+            color: white; /* Ensures text visibility on black background */
+            font-family: Arial, sans-serif;
+        }
+
         .iframeWindow {
             position: absolute;
             width: 100vw;
@@ -23,7 +31,7 @@
             margin: 0;
             left: 0;
             bottom: 0;
-            background-color: #000000;
+            background-color: #fff; /* White background for the iframe */
         }
 
         #urlInput {
@@ -35,8 +43,7 @@
             border: 1px solid #ccc;
             border-radius: 10px;
             background-color: rgba(0, 0, 0, 0.6);
-            color: #000000;
-            font-family: Arial, sans-serif;
+            color: white;
             transition: background-color 0.3s ease-in-out;
             outline: none;
         }
@@ -47,15 +54,15 @@
             font-size: 1rem;
             border: none;
             border-radius: 20px;
-            background-color: #ffffff; /* Black background */
-            color: black;
+            background-color: #ffffff; /* White button */
+            color: black; /* Black text */
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         #searchButton:hover {
-            background-color: #333333; /* Dark gray on hover */
+            background-color: #f2f2f2; /* Light gray on hover */
             transform: scale(1.05);
         }
 
@@ -78,10 +85,19 @@
             background-color: #f2f2f2; /* Slightly darker white on hover */
             transform: scale(1.05);
         }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            background-color: #000000; /* Black background for the search area */
+            padding: 20px; /* Add padding around the search bar and button */
+        }
     </style>
 </head>
 <body>
-    <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+    <div class="search-container">
         <input type="text" id="urlInput" placeholder="Enter URL here">
         <button id="searchButton">Search</button>
     </div>
