@@ -13,7 +13,48 @@
         });
     }
     </script>
-<link rel="stylesheet" href="example.css">
+    <style>
+        .iframeWindow {
+            position: absolute;
+            width: 100vw;
+            height: 90vh;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            left: 0;
+            bottom: 0;
+            background-color: #fff;
+        }
+
+        #urlInput {
+            width: 100px;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease-in-out;
+            outline: none;
+        }
+
+        #searchButton {
+            position: absolute;
+            margin: 0;
+            right: 0;
+            top: -5px;
+            width: 20vw;
+            height: 10vh;
+            border: 0;
+            outline: 0;
+            color: #141414;
+            background-color: aliceblue;
+            font-size: 5vh;
+        }
+    </style>
 </head>
 <body>
     <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
