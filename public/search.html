@@ -27,6 +27,24 @@
             height: 100vh; /* Ensure the body takes full viewport height */
         }
 
+        /* Back to Home Button */
+        .back-button {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 20px;
+            background-color: #ffffff; /* White background */
+            color: black; /* Black text */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: #f2f2f2; /* Slightly darker white on hover */
+            transform: scale(1.05);
+        }
+
         /* Search Bar Container */
         .search-container {
             display: flex;
@@ -35,6 +53,12 @@
             padding: 20px;
             background-color: #000000; /* Black background for the search area */
             z-index: 2; /* Make sure the search bar appears on top */
+        }
+
+        /* Flex container to align the back button and search bar */
+        .search-bar-wrapper {
+            display: flex;
+            align-items: center;  /* Aligns the back button and search bar vertically */
         }
 
         /* Search Bar and Button */
@@ -88,39 +112,34 @@
             border: none;
         }
 
-        /* Back to Home Button */
-        .back-button {
-            width: ;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 20px;
-            background-color: #ffffff; /* White button */
-            color: black; /* Black text */
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .back-button:hover {
-            background-color: #f2f2f2; /* Slightly darker white on hover */
-            transform: scale(1.05);
-        }
     </style>
 </head>
 <body>
-    <!-- Back to Home Button -->
-    <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
-    <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" id="urlInput" placeholder="Enter URL here">
-        <button id="searchButton">Search</button>
+    <!-- Search Bar Wrapper (Includes Back Button) -->
+    <div class="search-bar-wrapper">
+        <!-- Back to Home Button -->
+        <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="urlInput" placeholder="Enter URL here">
+            <button id="searchButton">Search</button>
+        </div>
     </div>
 
     <!-- Container for the iframe with background GIF -->
     <div class="iframeContainer">
         <iframe id="iframeWindow" class="iframeWindow"></iframe>
     </div>
+
+    <script>
+        // JavaScript for handling the search functionality
+        document.getElementById('searchButton').addEventListener('click', function() {
+            var url = document.getElementById('urlInput').value;
+            if (url) {
+                document.getElementById('iframeWindow').src = url;
+            }
+        });
+    </script>
 </body>
-<script src="example.js"></script>
 </html>
