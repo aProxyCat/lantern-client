@@ -124,6 +124,15 @@
     <div class="iframeContainer">
         <iframe id="iframeWindow" class="iframeWindow"></iframe>
     </div>
+
+    <script>
+        // Add any additional JavaScript for handling search or interactions here
+        document.getElementById('searchButton').addEventListener('click', function() {
+            var url = document.getElementById('urlInput').value;
+            if (url) {
+                document.getElementById('iframeWindow').src = url;
+            }
+        });
+    </script>
 </body>
-<script src="example.js"></script>
 </html>
