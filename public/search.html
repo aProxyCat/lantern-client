@@ -22,31 +22,26 @@
             background-color: #000000; /* Black background for the entire site */
             color: white; /* Ensures text visibility on black background */
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Ensure the body takes full viewport height */
         }
 
-        /* Container to hold the iframe */
-        .iframeContainer {
-            position: absolute;
-            width: 100vw;
-            height: 90vh;
-            left: 0;
-            bottom: 0;
-            background: url('Wonderland_.gif') center center / cover no-repeat; /* Add your GIF URL here */
+        /* Search Bar Container */
+        .search-container {
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
+            background-color: #000000; /* Black background for the search area */
+            z-index: 2; /* Make sure the search bar appears on top */
         }
 
-        .iframeWindow {
-            width: 80%;  /* Adjust as needed */
-            height: 80%; /* Adjust as needed */
-            border: none;
-        }
-
+        /* Search Bar and Button */
         #urlInput {
             width: 600px;
             height: 40px;
-            margin-bottom: 20px;
+            margin-right: 10px; /* Space between the input and button */
             padding: 8px;
             font-size: 1rem;
             border: 1px solid #ccc;
@@ -58,7 +53,6 @@
         }
 
         #searchButton {
-            margin-left: 10px;
             padding: 10px 20px;
             font-size: 1rem;
             border: none;
@@ -75,6 +69,25 @@
             transform: scale(1.05);
         }
 
+        /* Container to hold the iframe */
+        .iframeContainer {
+            position: relative;
+            width: 100%;
+            flex-grow: 1; /* Allow the iframe container to take up the remaining space */
+            background: url('Wonderland_.gif') center center / cover no-repeat; /* Add your GIF URL here */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Iframe Styling */
+        .iframeWindow {
+            width: 80%;  /* Adjust as needed */
+            height: 80%; /* Adjust as needed */
+            border: none;
+        }
+
+        /* Back to Home Button */
         .back-button {
             position: fixed;
             bottom: 20px;
@@ -94,18 +107,10 @@
             background-color: #f2f2f2; /* Slightly darker white on hover */
             transform: scale(1.05);
         }
-
-        .search-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            background-color: #000000; /* Black background for the search area */
-            padding: 20px; /* Add padding around the search bar and button */
-        }
     </style>
 </head>
 <body>
+    <!-- Search Bar -->
     <div class="search-container">
         <input type="text" id="urlInput" placeholder="Enter URL here">
         <button id="searchButton">Search</button>
