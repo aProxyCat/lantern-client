@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="favicon.png">
-    <link rel="icon" sizes="192x192" href="favicon.png">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/uv/uv.bundle.js"></script>
     <script src="/uv/uv.config.js"></script>
 
@@ -26,16 +24,23 @@
             font-family: Arial, sans-serif;
         }
 
-        .iframeWindow {
+        /* Container to hold the iframe */
+        .iframeContainer {
             position: absolute;
             width: 100vw;
             height: 90vh;
-            border: 0;
-            padding: 0;
-            margin: 0;
             left: 0;
             bottom: 0;
-            background: url('wonderland_.gif') center center / cover no-repeat; /* Replace 'your-gif-url.gif' with the actual GIF URL */
+            background: url('Wonderland_.gif') center center / cover no-repeat; /* Add your GIF URL here */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .iframeWindow {
+            width: 80%;  /* Adjust as needed */
+            height: 80%; /* Adjust as needed */
+            border: none;
         }
 
         #urlInput {
@@ -106,7 +111,10 @@
         <button id="searchButton">Search</button>
     </div>
 
-    <iframe id="iframeWindow" class="iframeWindow"></iframe>
+    <!-- Container for the iframe with background GIF -->
+    <div class="iframeContainer">
+        <iframe id="iframeWindow" class="iframeWindow"></iframe>
+    </div>
 
     <!-- Back to Home Button -->
     <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
