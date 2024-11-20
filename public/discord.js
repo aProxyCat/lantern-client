@@ -1,14 +1,11 @@
-document
+document // makes it so you can press enter to submit as opposed to just being able to press a button
     .getElementById("urlInput")
     .addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
-            document.getElementById("searchButton").click(); // This will trigger the search when "Enter" is pressed
+            document.getElementById("searchButton").click();
         }
     });
-
-// Automatically trigger the search button click
-document.getElementById("searchButton").click(); // Add this to click the search button on page load
 
 document.getElementById("searchButton").onclick = function (event) {
     event.preventDefault();
