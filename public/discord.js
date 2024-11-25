@@ -1,25 +1,40 @@
-document // makes it so you can press enter to submit as opposed to just being able to press a button
-    .getElementById("urlInput")
-    .addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("searchButton").click();
-        }
-    });
+// Listen for "Enter" key press to trigger the search
+document.getElementById("urlInput").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("searchButton").click();
+    }
+});
 
+// Handle the search button click
 document.getElementById("searchButton").onclick = function (event) {
     event.preventDefault();
 
-    let url = document.getElementById("urlInput").value; // if no periods are detected in the input, search google instead
+    let url = document.getElementById("urlInput").value; // Get the input value
     let searchUrl = "https://www.google.com/search?q=";
 
+    // If the input doesn't contain a period, treat it as a search query
     if (!url.includes(".")) {
         url = searchUrl + encodeURIComponent(url);
     } else {
-        if (!url.startsWith("http://") && !url.startsWith("https://")) { // if no http or https is detected, add https automatically
+        // If no protocol (http/https) is provided, prepend "https://"
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "https://" + url;
         }
     }
 
+    // Assuming iframeWindow is your iframe element
     iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+};
+
+// Automatically trigger the search when the page loads
+window.onload = function() {
+    // Optionally, you can use a default value for the search field, or keep it empty
+    let initialUrl = document.getElementById("urlInput").value || "example.com"; // Default to 'example.com' or any desired URL
+
+    // Set the input value (if needed)
+    document.getElementById("urlInput").value = initialUrl;
+
+    // Trigger the search button click automatically
+    document.getElementById("searchButton").click();
 };
