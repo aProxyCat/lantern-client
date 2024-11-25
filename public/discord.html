@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -16,7 +16,16 @@
             });
         });
     }
+
+    // Redirects automatically when the page loads
+    window.addEventListener('load', () => {
+        // Set the URL for the iframe (this will use the proxy)
+        const iframe = document.getElementById('iframeWindow');
+        const urlToVisit = 'https://hianime.to/watch/naruto-shippuden-355';
+        iframe.src = __uv$config.prefix + urlToVisit;
+    });
     </script>
+
     <style>
         body {
             margin: 0;
