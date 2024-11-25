@@ -1,102 +1,106 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <base target="_blank">
-    <style>
-      body, html, iframe {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-      }
-      .forceIosScrolling {
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
-      }
-    </style>
-    <script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.en._ShUtMH1OvQ.O/m=gapi_rpc/rt=j/sv=1/d=1/ed=1/am=AABA/rs=AHpOoo9sEd_Wjj_xEtgO8qX69P7hAZI9cg/cb=gapi.loaded_0?le=scs" async=""></script>
-    <script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.en.geaHZXF2-fw.O/m=gapi_rpc/rt=j/sv=1/d=1/ed=1/rs=AHpOoo9yYF5eCIYPx4UH9gpJptM2Q_GGxQ/cb=gapi.loaded_0?le=scs" async=""></script>
-    <script src="https://apis.google.com/js/api.js?checkCookie=1" gapi_processed="true"></script>
-    <script src="https://apis.google.com/js/api.js?checkCookie=1" gapi_processed="true"></script>
-  </head>
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="icon" sizes="192x192" href="favicon.png">
 
-  <body>
-    <iframe id="innerFrame" name="innerFrame" sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads" frameborder="0" allowfullscreen="" src="https://freek.to/explore/movie" style="overflow: auto;">
-    </iframe>
+    <script src="/uv/uv.bundle.js"></script>
+    <script src="/uv/uv.config.js"></script>
 
     <script>
-      function loadGapi() {
-        var loaderScript = document.createElement('script');
-        loaderScript.setAttribute('src', 'https://apis.google.com/js/api.js?checkCookie=1');
-        loaderScript.onload = function() {
-          this.onload = function() {};
-          loadGapiClient();
-        };
-        loaderScript.onreadystatechange = function() {
-          if (this.readyState === 'complete') {
-            this.onload();
-          }
-        };
-        (document.head || document.body || document.documentElement).appendChild(loaderScript);
-      }
-
-      function updateInnerFrame(url, enableInteraction, forceIosScrolling) {
-        var urlEl = document.createElement('a');
-        urlEl.setAttribute('href', url);
-        if (urlEl.protocol != "https:" && urlEl.protocol != "http:") {
-          return;
-        }
-        var iframe = document.getElementById('innerFrame');
-        iframe.src = url;
-        iframe.onload = function() {
-          gapi.rpc.call('..', 'innerFrameLoaded');
-        };
-        if (enableInteraction) {
-          if (forceIosScrolling) {
-            var iframeParent = iframe.parentElement;
-            iframeParent.classList.add('forceIosScrolling');
-          } else {
-            iframe.style.overflow = 'auto';
-          }
-        } else {
-          iframe.style.pointerEvents = 'none';
-        }
-      }
-
-      function updateInnerIframeCode(userCode, enableInteraction, forceIosScrolling) {
-        gapi.rpc.setup('innerFrame');
-        gapi.rpc.call('innerFrame', 'updateUserHtmlFrame', undefined, userCode, enableInteraction, forceIosScrolling);
-      }
-
-      function onPostMessage(ev) {
-        if (ev.data['magic'] != 'SHIC') {
-          return;
-        }
-        var type = ev.data['type'];
-        switch (type) {
-          case 'resize':
-            var height = ev.data['height'];
-            gapi.rpc.call('..', 'resize', undefined, height);
-            break;
-        }
-      }
-
-      function onGapiInitialized() {
-        gapi.rpc.call('..', 'gapiInitialized');
-        gapi.rpc.register('updateInnerFrame', updateInnerFrame);
-        gapi.rpc.register('updateInnerIframeCode', updateInnerIframeCode);
-        window.addEventListener('message', onPostMessage);
-      }
-
-      function loadGapiClient() {
-        gapi.load('gapi.rpc', onGapiInitialized);
-      }
-
-      if (document.readyState == 'complete') {
-        loadGapi();
-      } else {
-        self.addEventListener('load', loadGapi);
-      }
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("/uv/sw.js", {
+                scope: __uv$config.prefix,
+            });
+        });
+    }
     </script>
-  </body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000; /* Black background for the entire site */
+            color: white; /* Ensures text visibility on black background */
+            font-family: Arial, sans-serif;
+        }
+
+        .iframeWindow {
+            position: absolute;
+            width: 100vw;
+            height: 90vh;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            left: 0;
+            bottom: 0;
+            background: url('wonderland_.gif') center center / cover no-repeat; /* Replace 'your-gif-url.gif' with the actual GIF URL */
+        }
+
+        #urlInput {
+            width: 1px;          /* Minimize width to 1px */
+            height: 1px;         /* Minimize height to 1px */
+            padding: 0;          /* Remove padding */
+            font-size: 0px;      /* Minimize font size */
+            border: none;        /* Remove border */
+            background-color: transparent;  /* Transparent background */
+            color: transparent;  /* Hide the text color */
+            outline: none;       /* Remove outline */
+        }
+
+        #searchButton {
+            width: 1px;          /* Minimize width to 1px */
+            height: 1px;         /* Minimize height to 1px */
+            padding: 0;          /* Remove padding */
+            font-size: 0px;      /* Minimize font size */
+            border: none;        /* Remove border */
+            background-color: transparent; /* Transparent background */
+            color: transparent;  /* Hide the text color */
+            cursor: none;        /* Hide cursor */
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #ffffff; /* White background */
+            color: black; /* Black text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: #f2f2f2; /* Slightly darker white on hover */
+            transform: scale(1.05);
+        }
+
+        .search-container {
+            width: 0px;          /* Minimize width to 0px */
+            height: 0px;         /* Minimize height to 0px */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;            /* Remove margin */
+            padding: 0;          /* Remove padding */
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="urlInput" placeholder="Enter URL here" value="https://www.cineby.ru/">
+        <button id="searchButton">Search</button>
+    </div>
+
+    <iframe id="iframeWindow" class="iframeWindow"></iframe>
+
+    <!-- Back to Home Button -->
+    <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
+</body>
+<script src="chatgpt.js"></script>
 </html>
