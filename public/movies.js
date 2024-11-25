@@ -30,7 +30,7 @@ document.getElementById("searchButton").onclick = function (event) {
 // Automatically trigger the search when the page loads
 window.onload = function() {
     // Set a default URL if the input field is empty
-    let initialUrl = document.getElementById("urlInput").value || "https://www.cineby.ru/"; 
+    let initialUrl = document.getElementById("urlInput").value || "https://freek.to/explore/movie"; 
 
     // Set the input field's value to the default URL
     document.getElementById("urlInput").value = initialUrl;
