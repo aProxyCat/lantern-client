@@ -1,3 +1,6 @@
+// Flag to track whether the user has interacted with the page after initial load
+let userInteracted = false;
+
 // This function processes the URL and loads the iframe
 function loadWebsite(url) {
     let searchUrl = "https://www.google.com/search?q=";
@@ -21,9 +24,10 @@ window.addEventListener('load', function() {
     let inputField = document.getElementById("urlInput");
     let initialValue = inputField.value.trim();
 
-    // If there's already a URL in the input, automatically load it
-    if (initialValue) {
+    // If there's already a URL in the input, automatically load it, but only once on initial load
+    if (initialValue && !userInteracted) {
         loadWebsite(initialValue);
+        userInteracted = true; // Set the flag to indicate interaction has happened
     }
 });
 
@@ -43,3 +47,9 @@ document.getElementById("searchButton").onclick = function(event) {
     let url = document.getElementById("urlInput").value; // Get value from input field
     loadWebsite(url); // Process and load the website or search results
 };
+
+// Prevent automatic search from firing when navigating within the iframe
+document.getElementById('iframe').addEventListener('load', function() {
+    // Once the iframe loads content, track that interaction occurred
+    userInteracted = true;
+});
