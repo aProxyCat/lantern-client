@@ -1,55 +1,24 @@
-// Flag to track whether the user has interacted with the page after initial load
-let userInteracted = false;
+// Define the default URL (Discord in this case)
+let defaultUrl = "https://discord.com/";
 
-// This function processes the URL and loads the iframe
-function loadWebsite(url) {
+// Function to process the URL (if you want to include your existing checks)
+function processUrl(url) {
     let searchUrl = "https://www.google.com/search?q=";
-    
-    // If the URL doesn't contain a period, treat it as a search term (Google search)
+
     if (!url.includes(".")) {
-        url = searchUrl + encodeURIComponent(url);
+        // If no period in the URL, treat it as a search term
+        return searchUrl + encodeURIComponent(url);
     } else {
-        // If the URL doesn't start with http:// or https://, add https://
+        // If the URL doesn't start with http:// or https://, prepend https://
         if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = "https://" + url;
         }
+        return url;
     }
-
-    // Update the iframe source with the encoded URL
-    iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
 }
 
-// Automatically load website if input is populated when the page is first loaded
-window.addEventListener('load', function() {
-    let inputField = document.getElementById("urlInput");
-    let initialValue = inputField.value.trim();
+// Automatically process the Discord URL
+let urlToLoad = processUrl(defaultUrl);
 
-    // If there's already a URL in the input, automatically load it, but only once on initial load
-    if (initialValue && !userInteracted) {
-        loadWebsite(initialValue);
-        userInteracted = true; // Set the flag to indicate interaction has happened
-    }
-});
-
-// Add event listener to trigger search when 'Enter' key is pressed in the input field
-document.getElementById("urlInput").addEventListener("keydown", function(event) {
-    // Only trigger search if the 'Enter' key is pressed in the search input field
-    if (event.key === "Enter") {
-        event.preventDefault();
-        document.getElementById("searchButton").click(); // Trigger the search button click manually
-    }
-});
-
-// Add the search button click event handler
-document.getElementById("searchButton").onclick = function(event) {
-    event.preventDefault();
-    
-    let url = document.getElementById("urlInput").value; // Get value from input field
-    loadWebsite(url); // Process and load the website or search results
-};
-
-// Prevent automatic search from firing when navigating within the iframe
-document.getElementById('iframe').addEventListener('load', function() {
-    // Once the iframe loads content, track that interaction occurred
-    userInteracted = true;
-});
+// Automatically set the iframe src
+iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(urlToLoad);
