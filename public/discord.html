@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">  
 <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="favicon.png">
-    <link rel="icon" sizes="192x192" href="favicon.png">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/uv/uv.bundle.js"></script>
     <script src="/uv/uv.config.js"></script>
 
@@ -24,42 +22,72 @@
             background-color: #000000; /* Black background for the entire site */
             color: white; /* Ensures text visibility on black background */
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Ensure the body takes full viewport height */
         }
 
-        .iframeWindow {
-            position: absolute;
-            width: 100vw;
-            height: 90vh;
-            border: 0;
-            padding: 0;
-            margin: 0;
-            left: 0;
-            bottom: 0;
-            background: url('wonderland_.gif') center center / cover no-repeat; /* Replace 'your-gif-url.gif' with the actual GIF URL */
+        /* Search Bar Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #000000; /* Black background for the search area */
+            z-index: 2; /* Make sure the search bar appears on top */
         }
 
+        /* Search Bar and Button */
         #urlInput {
-            width: 1px;          /* Minimize width to 1px */
-            height: 1px;         /* Minimize height to 1px */
-            padding: 0;          /* Remove padding */
-            font-size: 0px;      /* Minimize font size */
-            border: none;        /* Remove border */
-            background-color: transparent;  /* Transparent background */
-            color: transparent;  /* Hide the text color */
-            outline: none;       /* Remove outline */
+            width: 600px;
+            height: 40px;
+            margin-right: 10px; /* Space between the input and button */
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+            outline: none;
         }
 
         #searchButton {
-            width: 1px;          /* Minimize width to 1px */
-            height: 1px;         /* Minimize height to 1px */
-            padding: 0;          /* Remove padding */
-            font-size: 0px;      /* Minimize font size */
-            border: none;        /* Remove border */
-            background-color: transparent; /* Transparent background */
-            color: transparent;  /* Hide the text color */
-            cursor: none;        /* Hide cursor */
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 20px;
+            background-color: #ffffff; /* White button */
+            color: black; /* Black text */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
+        #searchButton:hover {
+            background-color: #f2f2f2; /* Light gray on hover */
+            transform: scale(1.05);
+        }
+
+        /* Container to hold the iframe */
+        .iframeContainer {
+            position: relative;
+            width: 100%;
+            flex-grow: 1; /* Allow the iframe container to take up the remaining space */
+            background: url('galaxy.gif') center center / cover no-repeat; /* Add your GIF URL here */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Iframe Styling */
+        .iframeWindow {
+            width: 100%;  /* Adjust as needed */
+            height: 100%; /* Adjust as needed */
+            border: none;
+        }
+
+        /* Back to Home Button */
         .back-button {
             position: fixed;
             bottom: 20px;
@@ -79,25 +107,19 @@
             background-color: #f2f2f2; /* Slightly darker white on hover */
             transform: scale(1.05);
         }
-
-        .search-container {
-            width: 1px;          /* Minimize width to 1px */
-            height: 1px;         /* Minimize height to 1px */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 0;        /* Remove extra margin */
-            padding: 0;          /* Remove padding */
-        }
     </style>
 </head>
 <body>
+    <!-- Search Bar -->
     <div class="search-container">
         <input type="text" id="urlInput" placeholder="Enter URL here" value="https://discord.com/">
         <button id="searchButton">Search</button>
     </div>
 
-    <iframe id="iframeWindow" class="iframeWindow"></iframe>
+    <!-- Container for the iframe with background GIF -->
+    <div class="iframeContainer">
+        <iframe id="iframeWindow" class="iframeWindow"></iframe>
+    </div>
 
     <!-- Back to Home Button -->
     <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
