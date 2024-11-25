@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/uv/uv.bundle.js"></script>
+    <script src="/uv/uv.config.js"></script>
+
+    <script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("/uv/sw.js", {
+                scope: __uv$config.prefix,
+            });
+        });
+    }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000; /* Black background for the entire site */
+            color: white; /* Ensures text visibility on black background */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Ensure the body takes full viewport height */
+        }
+
+        /* Search Bar Container */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #000000; /* Black background for the search area */
+            z-index: 2; /* Make sure the search bar appears on top */
+        }
+
+        /* Search Bar and Button */
+        #urlInput {
+            width: 600px;
+            height: 40px;
+            margin-right: 10px; /* Space between the input and button */
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+            outline: none;
+        }
+
+        #searchButton {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 20px;
+            background-color: #ffffff; /* White button */
+            color: black; /* Black text */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #searchButton:hover {
+            background-color: #f2f2f2; /* Light gray on hover */
+            transform: scale(1.05);
+        }
+
+        /* Container to hold the iframe */
+        .iframeContainer {
+            position: relative;
+            width: 100%;
+            flex-grow: 1; /* Allow the iframe container to take up the remaining space */
+            background: url('galaxy.gif') center center / cover no-repeat; /* Add your GIF URL here */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Iframe Styling */
+        .iframeWindow {
+            width: 100%;  /* Adjust as needed */
+            height: 100%; /* Adjust as needed */
+            border: none;
+        }
+
+        /* Back to Home Button */
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #ffffff; /* White background */
+            color: black; /* Black text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: #f2f2f2; /* Slightly darker white on hover */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="urlInput" placeholder="Enter URL here" value="https://thetvapp.to/">
+        <button id="searchButton">Search</button>
+    </div>
+
+    <!-- Container for the iframe with background GIF -->
+    <div class="iframeContainer">
+        <iframe id="iframeWindow" class="iframeWindow"></iframe>
+    </div>
+
+    <!-- Back to Home Button -->
+    <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
+</body>
+<script src="livetv.js"></script>
+</html>
