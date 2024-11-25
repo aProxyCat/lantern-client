@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="icon" sizes="192x192" href="favicon.png">
+
+    <script src="/uv/uv.bundle.js"></script>
+    <script src="/uv/uv.config.js"></script>
+
+    <script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("/uv/sw.js", {
+                scope: __uv$config.prefix,
+            });
+        });
+    }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000; /* Black background for the entire site */
+            color: white; /* Ensures text visibility on black background */
+            font-family: Arial, sans-serif;
+        }
+
+        .iframeWindow {
+            position: absolute;
+            width: 100vw;
+            height: 90vh;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            left: 0;
+            bottom: 0;
+            background: url('wonderland_.gif') center center / cover no-repeat; /* Replace 'your-gif-url.gif' with the actual GIF URL */
+        }
+
+        #urlInput {
+            width: 600px;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+            outline: none;
+        }
+
+        #searchButton {
+            margin-left: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 20px;
+            background-color: #ffffff; /* White button */
+            color: black; /* Black text */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #searchButton:hover {
+            background-color: #f2f2f2; /* Light gray on hover */
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #ffffff; /* White background */
+            color: black; /* Black text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: #f2f2f2; /* Slightly darker white on hover */
+            transform: scale(1.05);
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            background-color: #000000; /* Black background for the search area */
+            padding: 20px; /* Add padding around the search bar and button */
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="urlInput" placeholder="Enter URL here" value="https://hianime.to/watch/naruto-shippuden-355">
+        <button id="searchButton">Search</button>
+    </div>
+
+    <iframe id="iframeWindow" class="iframeWindow"></iframe>
+
+    <!-- Back to Home Button -->
+    <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
+</body>
+<script src="discord.js"></script>
+</html>
