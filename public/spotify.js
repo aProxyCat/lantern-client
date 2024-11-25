@@ -1,47 +1,41 @@
-// Listen for "Enter" key press to trigger the search
-document.getElementById("urlInput").addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        // Only trigger if the page hasn't already been loaded
-        if (!sessionStorage.getItem("pageLoaded")) {
-            document.getElementById("searchButton").click();
-            sessionStorage.setItem("pageLoaded", "true"); // Mark as loaded
+document.addEventListener("DOMContentLoaded", function () {
+    // Set a predefined URL
+    let predefinedUrl = "open.spotify.com"; // Change this to any URL you want to automatically use
+
+    // Function to handle the logic for processing the URL
+    function processUrl(url) {
+        let searchUrl = "https://www.google.com/search?q=";
+
+        // If the URL does not contain a period (.), perform a Google search instead
+        if (!url.includes(".")) {
+            url = searchUrl + encodeURIComponent(url);
+        } else {
+            // Ensure the URL starts with "https://"
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                url = "https://" + url;
+            }
         }
+
+        // Now, perform the action you would normally do (setting the iframe src)
+        iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
     }
+
+    // Handle the "Enter" key press to submit the form
+    document.getElementById("urlInput").addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();  // Prevent default action (form submit)
+            processUrl(document.getElementById("urlInput").value);  // Process the URL from the input field
+        }
+    });
+
+    // Handle the "Search" button click
+    document.getElementById("searchButton").onclick = function (event) {
+        event.preventDefault();  // Prevent default button click behavior
+        processUrl(document.getElementById("urlInput").value);  // Process the URL from the input field
+    };
+
+    // Automatically process the predefined URL (this is for the initial loading scenario)
+    // You can set this URL in the input field and trigger the button click or just call the processUrl directly
+    document.getElementById("urlInput").value = predefinedUrl;  // Set the predefined URL in the input
+    processUrl(predefinedUrl);  // Automatically process it (this could be removed if you don't want auto-processing)
 });
-
-// Handle the search button click
-document.getElementById("searchButton").onclick = function (event) {
-    event.preventDefault();
-
-    let url = document.getElementById("urlInput").value; // Get the input value
-    let searchUrl = "https://www.google.com/search?q=";
-
-    // If the input doesn't contain a period, treat it as a search query
-    if (!url.includes(".")) {
-        url = searchUrl + encodeURIComponent(url);
-    } else {
-        // If no protocol (http/https) is provided, prepend "https://"
-        if (!url.startsWith("http://") && !url.startsWith("https://")) {
-            url = "https://" + url;
-        }
-    }
-
-    // Assuming iframeWindow is your iframe element
-    iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
-};
-
-// Automatically trigger the search when the page loads
-window.onload = function() {
-    // Set a default URL if the input field is empty
-    let initialUrl = document.getElementById("urlInput").value || "https://open.spotify.com/"; 
-
-    // Set the input field's value to the default URL
-    document.getElementById("urlInput").value = initialUrl;
-
-    // Trigger the search button click automatically only once
-    if (!sessionStorage.getItem("pageLoaded")) {
-        document.getElementById("searchButton").click();
-        sessionStorage.setItem("pageLoaded", "true"); // Mark as loaded
-    }
-};
