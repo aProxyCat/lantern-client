@@ -38,38 +38,6 @@
             background: url('wonderland_.gif') center center / cover no-repeat; /* Replace 'your-gif-url.gif' with the actual GIF URL */
         }
 
-        #urlInput {
-            width: 600px;
-            height: 40px;
-            margin-bottom: 20px;
-            padding: 8px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            transition: background-color 0.3s ease-in-out;
-            outline: none;
-        }
-
-        #searchButton {
-            margin-left: 10px;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 20px;
-            background-color: #ffffff; /* White button */
-            color: black; /* Black text */
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        #searchButton:hover {
-            background-color: #f2f2f2; /* Light gray on hover */
-            transform: scale(1.05);
-        }
-
         .back-button {
             position: fixed;
             bottom: 20px;
@@ -89,23 +57,9 @@
             background-color: #f2f2f2; /* Slightly darker white on hover */
             transform: scale(1.05);
         }
-
-        .search-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            background-color: #000000; /* Black background for the search area */
-            padding: 20px; /* Add padding around the search bar and button */
-        }
     </style>
 </head>
 <body>
-    <div class="search-container">
-        <input type="text" id="urlInput" placeholder="Enter URL here" value="https://chatgpt.com/">
-        <button id="searchButton">Search</button>
-    </div>
-
     <iframe id="iframeWindow" class="iframeWindow"></iframe>
 
     <!-- Back to Home Button -->
