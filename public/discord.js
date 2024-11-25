@@ -2,7 +2,11 @@
 document.getElementById("urlInput").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         event.preventDefault();
-        document.getElementById("searchButton").click();
+        // Only trigger if the page hasn't already been loaded
+        if (!sessionStorage.getItem("pageLoaded")) {
+            document.getElementById("searchButton").click();
+            sessionStorage.setItem("pageLoaded", "true"); // Mark as loaded
+        }
     }
 });
 
@@ -30,11 +34,14 @@ document.getElementById("searchButton").onclick = function (event) {
 // Automatically trigger the search when the page loads
 window.onload = function() {
     // Set a default URL if the input field is empty
-    let initialUrl = document.getElementById("urlInput").value || "https://discord.com/"; 
+    let initialUrl = document.getElementById("urlInput").value || "https://open.spotify.com/"; 
 
     // Set the input field's value to the default URL
     document.getElementById("urlInput").value = initialUrl;
 
-    // Trigger the search button click automatically
-    document.getElementById("searchButton").click();
+    // Trigger the search button click automatically only once
+    if (!sessionStorage.getItem("pageLoaded")) {
+        document.getElementById("searchButton").click();
+        sessionStorage.setItem("pageLoaded", "true"); // Mark as loaded
+    }
 };
