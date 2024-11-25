@@ -34,7 +34,7 @@ document.getElementById("searchButton").onclick = function (event) {
 // Automatically trigger the search when the page loads
 window.onload = function() {
     // Set a default URL if the input field is empty
-    let initialUrl = document.getElementById("urlInput").value || "https://open.spotify.com/"; 
+    let initialUrl = document.getElementById("urlInput").value || "https://discord.com/"; 
 
     // Set the input field's value to the default URL
     document.getElementById("urlInput").value = initialUrl;
