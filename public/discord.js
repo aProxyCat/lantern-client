@@ -29,10 +29,10 @@ document.getElementById("searchButton").onclick = function (event) {
 
 // Automatically trigger the search when the page loads
 window.onload = function() {
-    // Optionally, you can use a default value for the search field, or keep it empty
-    let initialUrl = document.getElementById("urlInput").value || "example.com"; // Default to 'example.com' or any desired URL
+    // Set a default URL if the input field is empty
+    let initialUrl = document.getElementById("urlInput").value || "https://hianime.to/watch/naruto-shippuden-355"; 
 
-    // Set the input value (if needed)
+    // Set the input field's value to the default URL
     document.getElementById("urlInput").value = initialUrl;
 
     // Trigger the search button click automatically
