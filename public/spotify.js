@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Set a predefined URL
-    let predefinedUrl = "open.spotify.com"; // Change this to any URL you want to automatically use
+    let predefinedUrl = "https://spotify-react-web-client.onrender.com/"; // Change this to any URL you want to automatically use
 
     // Function to handle the logic for processing the URL
     function processUrl(url) {
