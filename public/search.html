@@ -133,14 +133,24 @@
 
         /* Popout Button Style */
         .popout-button {
-            background: none;
+            background-color: #ffffff;
+            color: black;
             border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
             cursor: pointer;
             position: absolute; /* Positioned relative to the search container */
-            left: -45px; /* Adjust this to move the button left from the search bar */
+            left: -100px; /* Move the button to the left from the search bar */
             top: 50%;
             transform: translateY(-50%); /* Vertically center the button */
-            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .popout-button:hover {
+            background-color: #f2f2f2;
+            transform: scale(1.05);
         }
 
         .popout-button img {
