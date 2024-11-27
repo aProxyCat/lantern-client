@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+make another button in the same way the search button but it is an image called popout.png and it pops out the Iframe in a about:blank window I want seperate html and js. my html is <!DOCTYPE html>
+<html lang="en">  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,6 @@
         });
     }
     </script>
-
     <style>
         body {
             margin: 0;
@@ -53,6 +52,23 @@
             outline: none;
         }
 
+        #popoutButton {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 20px;
+            background-color: #ffffff; /* White button */
+            color: black; /* Black text */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #popoutButton:hover {
+            background-color: #f2f2f2; /* Light gray on hover */
+            transform: scale(1.05);
+        }
+        
         #searchButton {
             padding: 10px 20px;
             font-size: 1rem;
@@ -68,22 +84,6 @@
         #searchButton:hover {
             background-color: #f2f2f2; /* Light gray on hover */
             transform: scale(1.05);
-        }
-
-        /* Popout Button */
-        #popoutButton {
-            background: url('popout.png') no-repeat center center;
-            background-size: contain;
-            width: 40px;  /* Adjust size of the image */
-            height: 40px;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        #popoutButton:hover {
-            transform: scale(1.1);
         }
 
         /* Container to hold the iframe */
@@ -131,7 +131,6 @@
     <div class="search-container">
         <input type="text" id="urlInput" placeholder="Enter URL here">
         <button id="searchButton">Search</button>
-        <button id="popoutButton"></button> <!-- Popout Button with Image -->
     </div>
 
     <!-- Container for the iframe with background GIF -->
@@ -141,8 +140,6 @@
 
     <!-- Back to Home Button -->
     <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
-
-    <!-- External JS -->
-    <script src="example.js"></script>
 </body>
+<script src="example.js"></script>
 </html>
