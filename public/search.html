@@ -61,6 +61,7 @@
             padding: 20px;
             background-color: #000000;
             z-index: 2;
+            position: relative; /* Needed to position the popout button relative to this container */
         }
 
         #urlInput {
@@ -135,6 +136,10 @@
             background: none;
             border: none;
             cursor: pointer;
+            position: absolute; /* Positioned relative to the search container */
+            left: -45px; /* Adjust this to move the button left from the search bar */
+            top: 50%;
+            transform: translateY(-50%); /* Vertically center the button */
             padding: 10px;
         }
 
@@ -146,21 +151,21 @@
 </head>
 <body>
     <div class="search-container">
+        <!-- Popout Icon Button -->
+        <button class="popout-button" onclick="popoutIframe()">
+            <img src="popout.png" alt="Popout Icon">
+        </button>
+
         <input type="text" id="urlInput" placeholder="Enter URL here">
         <button id="searchButton">Search</button>
     </div>
 
     <div class="iframeContainer">
-        <iframe id="iframeWindow" class="iframeWindow" src="https://www.example.com"></iframe>
+        <iframe id="iframeWindow" class="iframeWindow"></iframe>
     </div>
 
     <!-- Back to Home Button -->
     <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
-    
-    <!-- Popout Icon Button -->
-    <button class="popout-button" onclick="popoutIframe()">
-        <img src="popout.png" alt="Popout Icon">
-    </button>
 </body>
 <script src="example.js"></script>
 </html>
