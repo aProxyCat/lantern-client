@@ -18,21 +18,25 @@
     // Automatically load a default URL and trigger the search
     window.addEventListener("DOMContentLoaded", () => {
         const urlInput = document.getElementById("urlInput");
-        const searchButton = document.getElementById("searchButton");
-        const defaultURL = "https://discord.com"; // Set your default URL here
+        const defaultURL = "https://example.com"; // Set your default URL here
 
         // Pre-fill the URL input
         urlInput.value = defaultURL;
 
-        // Simulate a search button click
-        searchButton.click();
+        // Perform the search directly
+        performSearch(defaultURL);
     });
 
     // Search function to load the iframe
-    function performSearch() {
-        const urlInput = document.getElementById("urlInput").value;
+    function performSearch(url) {
         const iframeWindow = document.getElementById("iframeWindow");
-        iframeWindow.src = urlInput;
+        const targetURL = url || document.getElementById("urlInput").value;
+
+        if (targetURL) {
+            iframeWindow.src = targetURL;
+        } else {
+            alert("Please enter a URL!");
+        }
     }
     </script>
     <style>
