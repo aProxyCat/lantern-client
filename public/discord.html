@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,30 +13,6 @@
                 scope: __uv$config.prefix,
             });
         });
-    }
-
-    // Automatically load a default URL and trigger the search
-    window.addEventListener("DOMContentLoaded", () => {
-        const urlInput = document.getElementById("urlInput");
-        const defaultURL = "https://discord.com"; // Set your default URL here
-
-        // Pre-fill the URL input
-        urlInput.value = defaultURL;
-
-        // Perform the search directly
-        performSearch(defaultURL);
-    });
-
-    // Search function to load the iframe
-    function performSearch(url) {
-        const iframeWindow = document.getElementById("iframeWindow");
-        const targetURL = url || document.getElementById("urlInput").value;
-
-        if (targetURL) {
-            iframeWindow.src = targetURL;
-        } else {
-            alert("Please enter a URL!");
-        }
     }
     </script>
     <style>
@@ -76,7 +52,7 @@
             outline: none;
         }
 
-        #popoutButton, #searchButton {
+        #searchButton {
             padding: 10px 20px;
             font-size: 1rem;
             border: none;
@@ -88,7 +64,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        #popoutButton:hover, #searchButton:hover {
+        #searchButton:hover {
             background-color: #f2f2f2; /* Light gray on hover */
             transform: scale(1.05);
         }
@@ -136,9 +112,8 @@
 <body>
     <!-- Search Bar -->
     <div class="search-container">
-        <input type="text" id="urlInput" placeholder="Enter URL here">
-        <button id="searchButton" onclick="performSearch()">Search</button>
-        <button id="popoutButton">Fullscreen</button>
+        <input type="text" id="urlInput" placeholder="Enter URL here" value="https://discord.com">
+        <button id="searchButton">Search</button>
     </div>
 
     <!-- Container for the iframe with background GIF -->
@@ -149,4 +124,5 @@
     <!-- Back to Home Button -->
     <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
 </body>
+<script src="discord.js"></script>
 </html>
